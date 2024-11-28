@@ -1,0 +1,12 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+shodo_ssg = {git = "https://github.com/ryanmphill/shodo-static-gen", ref = "22f165bb4cd1effbd945406b26165dc16bdaf7ad"}
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
