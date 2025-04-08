@@ -1,7 +1,10 @@
 {
     "metadata": {
-        "title": "Shodo - A Static Site Generator",
-        "description": "Shodo is a static site generator that uses Markdown and JSON files to generate a static site.",
-        "author": "Shodo"
+        "title": "Ryan Phillips - Full Stack Software Developer",
+        "description": "Ryan Phillips is a full stack software developer with experience in various technologies.",
+        "keywords": "Ryan Phillips, Full Stack Developer, Software Engineer, Web Development, JavaScript, React, Node.js",
+        "image": "https://ryanphillips.dev/images/ryan-phillips.jpg",
+        "canonical_url": "https://ryanphillips.dev",
+        "author": "Ryan Phillips"
     }
 }
