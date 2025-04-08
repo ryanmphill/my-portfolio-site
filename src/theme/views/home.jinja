@@ -1,41 +1,83 @@
-<div class="container">
-<header class="site-header">
-    <img class="site-header__icon" height="150" width="150" src="/static/images/calligraphy-icon.svg" alt="Calligraphy pen writing on scroll">
-    <h1 class="site-header__site-title">{{ metadata.title }}</h1>
-</header>
-<main>
-    <h1>{{ home_page_title }}</h1>
-    <article>
-        {{ short }}
-    </article>
-    <article>
-        {{ collections.another_short }}
-    </article>
-    <section>
-        {% include 'another_template.jinja' %}
-    </section>
-    <section>
-        {% from 'loop_template.jinja' import loop_template as loop_template %}
-        {{ loop_template(list_of_words) }}
-    </section>
-    <section>
-        <h2>JavaScript</h2>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Della+Respira&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+</style>
 
-        <div id="helloJavaScript">
-            {# HTML rendered by JavaScript #}
+<div class="parallax">
+    <nav id="navbar" class="navbar">
+        <a href="/" class="navbar__logo">RP</a>
+        <button class="navbar-dropdown-toggle" aria-expanded="false" aria-controls="primary-nav">
+            <span class="navbar__hamburger-wrapper">
+                {% include "svg/hamburger.jinja" %}
+            </span>
+        </button>
+        <ul id="primary-nav" class="navbar__links">
+            <li><a class="nav-link" href="#about">About</a></li>
+            <li><a class="nav-link" href="#technology">Skills</a></li>
+            <li><a class="nav-link" href="#projects">Projects</a></li>
+            <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <header class="homepage-header">
+        <div class="homepage-header__heading">
+            <h1 class="homepage-header__title">Ryan Phillips</h1>
+            <p class="homepage-header__subtitle">Full Stack Software Developer</p>
         </div>
-    </section>
-    <section>
-        <h2>Getting Started</h2>
-        <p>
-            Get started by editing <code>src/theme/views/home.jinja</code> and then running <code>Python serve.py</code>
-            to build your static site in the <code>dist/</code> directory and start up the development server!
-        </p>
-    </section>
-</main>
-<footer>
-    <div><a href="/linked_page">Linked Template Page</a></div>
-    <div><a href="/blog">Blog</a></div>
-    <div><a href="/newsletter/monthly-update">Newsletter</a></div>
-</footer>
+        <div class="parallax-layer homepage-header__layer0"></div>
+        {# Mountain Illustrations #}
+        {% include "svg/hero/mountain1.jinja" %}
+        {% include "svg/hero/mountain2.jinja" %}
+        {% include "svg/hero/mountain3.jinja" %}
+    </header>
+    <main class="content">
+        <section id="about" class="homepage__about homepage__section">
+            <h2 class="section-heading">About</h2>
+            <div class="homepage__about-row">
+                <div class="homepage__about-row-text">
+                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae
+                        pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean
+                        sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa
+                        nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti
+                        sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
+                </div>
+                <div class="homepage__about-img-container">
+                    <img class="homepage__about-img" src="/static/images/website-portrait-transparent.png"
+                        alt="Ryan Phillips" />
+                </div>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem
+                placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor.
+                Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia
+                integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per
+                conubia nostra inceptos himenaeos.</p>
+        </section>
+        <section id="technology" class="homepage__section">
+            <h2 class="section-heading">Skills</h2>
+            <div class="technology-badges">
+                {% include "svg/tech-badges/javascript.jinja" %}
+                {% include "svg/tech-badges/typescript.jinja" %}
+                {% include "svg/tech-badges/react.jinja" %}
+                {% include "svg/tech-badges/next.jinja" %}
+                {% include "svg/tech-badges/python.jinja" %}
+                {% include "svg/tech-badges/django.jinja" %}
+                {% include "svg/tech-badges/php.jinja" %}
+                {% include "svg/tech-badges/laravel.jinja" %}
+                {% include "svg/tech-badges/wordpress.jinja" %}
+                {% include "svg/tech-badges/mysql.jinja" %}
+                {% include "svg/tech-badges/sqlite.jinja" %}
+                {% include "svg/tech-badges/aws.jinja" %}
+                {% include "svg/tech-badges/docker.jinja" %}
+                {% include "svg/tech-badges/html.jinja" %}
+                {% include "svg/tech-badges/css.jinja" %}
+                {% include "svg/tech-badges/sass.jinja" %}
+                {% include "svg/tech-badges/tailwind.jinja" %}
+                {% include "svg/tech-badges/bootstrap.jinja" %}
+            </div>
+        </section>
+        <section id="projects" class="homepage__section">
+            <h2 class="section-heading">Projects</h2>
+        </section>
+        <section id="contact" class="homepage__section">
+            <h2 class="section-heading">Contact</h2>
+        </section>
+    </main>
 </div>

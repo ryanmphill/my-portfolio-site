@@ -1,6 +1,7 @@
 {
     "root_template_paths": [
-        "src/theme/views"
+        "src/theme/views",
+        "src/theme/static/images/vector"
     ],
     "markdown_path": "src/theme/markdown",
     "json_config_path": "src/store",
