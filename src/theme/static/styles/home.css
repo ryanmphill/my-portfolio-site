@@ -2,8 +2,15 @@
   box-sizing: border-box;
 }
 
+body:has(.parallax) {
+  overflow-y: clip;
+  height: 100vh;
+  height: 100dvh;
+}
+
 .parallax {
   height: 100vh;
+  height: 100svh;
   overflow-x: hidden;
   overflow-y: auto;
   background-color: var(--background-color);
