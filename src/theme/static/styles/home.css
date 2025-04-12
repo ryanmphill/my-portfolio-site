@@ -3,9 +3,8 @@
 }
 
 body:has(.parallax) {
-  overflow-y: clip;
   height: 100vh;
-  height: calc(100dvh + 1px);
+  height: 100dvh;
 }
 
 .parallax {
