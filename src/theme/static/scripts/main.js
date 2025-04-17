@@ -1,16 +1,14 @@
+import homeInit from "./home.js";
 import { addDisclosureFunctionalityToSubmenus } from "./navbar.js";
+import { applyColorTheme } from "./theme.js";
 
+// Dropdown menu functionality
 addDisclosureFunctionalityToSubmenus(".navbar", "navbar__links");
+applyColorTheme();
 
-const scrollContainer = document.querySelector(".parallax");
-
-let ticking = false;
-scrollContainer.addEventListener("scroll", function () {
-  if (!ticking) {
-    window.requestAnimationFrame(() => {
-      window.scrollTo(0, scrollContainer.scrollTop);
-      ticking = false;
-    });
-    ticking = true;
-  }
-});
+if (
+  window.location.pathname === "/" ||
+  window.location.pathname === "/index.html"
+) {
+  homeInit();
+}

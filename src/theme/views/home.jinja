@@ -2,9 +2,17 @@
     @import url('https://fonts.googleapis.com/css2?family=Della+Respira&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 </style>
 
+{% include "partials/inline-scripts/load_theme.jinja" %}
+
 <div class="parallax">
+    {% include "partials/inline-scripts/hide_container.jinja" %}
     <nav id="navbar" class="navbar">
         <a href="/" class="navbar__logo">RP</a>
+        <button style="margin-left: auto;" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+            <span class="theme-toggle__icon">
+                Theme
+            </span>
+        </button>
         <button class="navbar-dropdown-toggle" aria-expanded="false" aria-controls="primary-nav">
             <span class="navbar__hamburger-wrapper">
                 {% include "svg/hamburger.jinja" %}
@@ -18,11 +26,12 @@
         </ul>
     </nav>
     <header class="homepage-header">
-        <div class="homepage-header__heading">
+        <div class="homepage-header__heading title-fade-in">
             <h1 class="homepage-header__title">Ryan Phillips</h1>
             <p class="homepage-header__subtitle">Full Stack Software Developer</p>
         </div>
-        <div class="parallax-layer homepage-header__layer0"></div>
+        <div class="parallax-layer stars"></div>
+        <div class="parallax-layer homepage-header__layer0 sun-slide-up" style="will-change: transform, opacity;"></div>
         {# Mountain Illustrations #}
         {% include "svg/hero/mountain1.jinja" %}
         {% include "svg/hero/mountain2.jinja" %}

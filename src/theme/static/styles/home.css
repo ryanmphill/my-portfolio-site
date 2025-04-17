@@ -2,19 +2,60 @@
   box-sizing: border-box;
 }
 
-body:has(.parallax) {
+/* :root:has(.parallax) {
   height: 100vh;
-  height: 100dvh;
-}
+  height: calc(100dvh + 20px);
+  padding-bottom: 2px;
+} */
 
 .parallax {
   height: 100vh;
   height: 100svh;
   overflow-x: hidden;
   overflow-y: auto;
+  /* overflow-y: clip; */
   background-color: var(--background-color);
   perspective: 10px;
+  /* position: sticky;
+  top: 0; */
 }
+
+.fade-in {
+  animation: fade-in 1.2s ease-in-out;
+}
+
+.title-fade-in {
+  animation: fade-in 1.75s ease-in-out;
+}
+
+.slide-in {
+  animation: slide-in 0.75s ease-in-out;
+}
+@keyframes slide-in {
+  0% {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1 !important;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1 !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    animation: none;
+  }
+}
+
 
 .homepage-header {
   --navbar-height: 39px;
@@ -59,7 +100,36 @@ body:has(.parallax) {
 }
 
 .homepage-header__layer0 {
-  transform: translateZ(-20px);
+  transform: translateZ(-20px) translateY(0);
+}
+
+.sun-slide-up {
+  animation: sun-slide-up 1.2s ease-in-out;
+}
+
+@keyframes sun-slide-up {
+  0% {
+    transform: translateZ(-20px) translateY(80px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateZ(-20px) translateY(0);
+    opacity: 1;
+  }
+}
+
+.stars {
+  display: none;
+}
+
+.dark-theme .stars {
+  display: block;
+  width: 2px;
+  transform: scale(5.5) translateZ(-50px) translateY(-300px) translateX(-300px);
+  height: 2px;
+  position: absolute;
+  background: white;
+  box-shadow: 2vw 5vh 2px white, 10vw 8vh 2px white, 15vw 15vh 1px white, 22vw 22vh 1px white, 28vw 12vh 2px white, 32vw 32vh 1px white, 38vw 18vh 2px white, 42vw 35vh 1px white, 48vw 25vh 2px white, 53vw 42vh 1px white, 58vw 15vh 2px white, 63vw 38vh 1px white, 68vw 28vh 2px white, 73vw 45vh 1px white, 78vw 32vh 2px white, 83vw 48vh 1px white, 88vw 20vh 2px white, 93vw 52vh 1px white, 98vw 35vh 2px white, 5vw 60vh 1px white, 12vw 65vh 2px white, 18vw 72vh 1px white, 25vw 78vh 2px white, 30vw 85vh 1px white, 35vw 68vh 2px white, 40vw 82vh 1px white, 45vw 92vh 2px white, 50vw 75vh 1px white, 55vw 88vh 2px white, 60vw 95vh 1px white, 65vw 72vh 2px white, 70vw 85vh 1px white, 75vw 78vh 2px white, 80vw 92vh 1px white, 85vw 82vh 2px white, 90vw 88vh 1px white, 95vw 75vh 2px white;
 }
 
 .homepage-header__layer1 {
