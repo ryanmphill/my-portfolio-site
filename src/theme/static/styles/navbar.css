@@ -1,6 +1,7 @@
 .navbar {
   background-color: var(--background-color);
   background-color: hsl(35 75% 95% / 1);
+  background-color: var(--nav-background);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.15);
   font-size: 20px;
@@ -115,7 +116,7 @@
     right: 0;
     width: 100%;
     padding: 0;
-    background-color: hsl(35 75% 95% / 1);
+    background-color: var(--nav-background);
     height: 0;
     box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.15);
     box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.05);
