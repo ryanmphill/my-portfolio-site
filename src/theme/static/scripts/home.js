@@ -61,7 +61,7 @@ function scrollParallaxContainerFromDocRoot() {
   // scrollContainer.style.setProperty("overflow-y", "hidden");
   // scrollContainer.style.setProperty("position", "sticky");
   scrollContainer.style.setProperty("overflow-y", "auto");
-  scrollContainer.style.setProperty("position", "fixed");
+  scrollContainer.style.setProperty("position", "sticky");
   scrollContainer.style.setProperty("scrollbar-width", "none");
   scrollContainer.style.setProperty("top", "0");
   // scrollContainer.style.willChange = "scroll-position";
