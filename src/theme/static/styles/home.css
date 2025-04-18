@@ -256,6 +256,10 @@
   filter: opacity(0.8) grayscale(20%) drop-shadow(0 0 0 var(--primary-color));
 }
 
+.dark-theme .homepage__about-img {
+  filter: opacity(0.8) grayscale(20%) drop-shadow(0 0 0 var(--background-color));
+}
+
 .homepage__about-img-container::after {
   content: "";
   position: absolute;
