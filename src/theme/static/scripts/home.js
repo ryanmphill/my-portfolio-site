@@ -1,4 +1,13 @@
 export default function homeInit() {
+  // Check if lvh and svh are supported in css
+  const supportsLvh = CSS.supports("height", "100lvh");
+  const supportsSvh = CSS.supports("height", "100svh");
+
+  // If lvh and svh are not supported, set the height of the parallax container to screen.height, and the height of the header to window.innerHeight - navbar.offsetHeight
+  if (!supportsLvh || !supportsSvh) {
+    setFallbackHeightsForParallaxAndHeader();
+  }
+
   fadeInSectionsOnScrollIntersect();
   scrollParallaxContainerFromDocRoot();
   setTimeout(() => {
@@ -69,42 +78,70 @@ function scrollParallaxContainerFromDocRoot() {
   }
 
   setBodyHeight();
+  window.addEventListener("resize", debounce(updateBodyHeight, 200));
 
   window.addEventListener("load", setBodyHeight);
   let lastWidth = window.innerWidth;
-  window.addEventListener("resize", () => {
+  function updateBodyHeight() {
     if (lastWidth !== window.innerWidth) {
       setBodyHeight();
       lastWidth = window.innerWidth;
     }
-  });
+  }
 
   let scrollEventTimeout;
 
+  let containerScrollRequested = false;
   function syncContainerScrollToWindow(e) {
-    clearTimeout(scrollEventTimeout);
-    scrollContainer.removeEventListener("scroll", syncWindowScrollToContainer);
-    window.requestAnimationFrame(() => {
-      scrollContainer.scroll(0, window.scrollY);
-      scrollEventTimeout = setTimeout(() => {
-        scrollContainer.addEventListener("scroll", syncWindowScrollToContainer);
-      }, 200);
-    });
+    if (!containerScrollRequested) {
+      clearTimeout(scrollEventTimeout);
+      scrollContainer.removeEventListener(
+        "scroll",
+        syncWindowScrollToContainer
+      );
+
+      window.requestAnimationFrame(() => {
+        scrollContainer.scroll(0, window.scrollY);
+        scrollEventTimeout = setTimeout(() => {
+          scrollContainer.addEventListener(
+            "scroll",
+            syncWindowScrollToContainer,
+            {
+              passive: true,
+            }
+          );
+        }, 200);
+        containerScrollRequested = false;
+      });
+      containerScrollRequested = true;
+    }
   }
 
+  let windowScrollRequested = false;
   function syncWindowScrollToContainer(e) {
-    clearTimeout(scrollEventTimeout);
-    window.removeEventListener("scroll", syncContainerScrollToWindow);
-    window.requestAnimationFrame(() => {
-      window.scrollTo(0, scrollContainer.scrollTop);
-      scrollEventTimeout = setTimeout(() => {
-        window.addEventListener("scroll", syncContainerScrollToWindow);
-      }, 200);
-    });
+    if (!windowScrollRequested) {
+      clearTimeout(scrollEventTimeout);
+      window.removeEventListener("scroll", syncContainerScrollToWindow);
+
+      window.requestAnimationFrame(() => {
+        window.scrollTo(0, scrollContainer.scrollTop);
+        scrollEventTimeout = setTimeout(() => {
+          window.addEventListener("scroll", syncContainerScrollToWindow, {
+            passive: true,
+          });
+        }, 200);
+        windowScrollRequested = false;
+      });
+      windowScrollRequested = true;
+    }
   }
 
-  window.addEventListener("scroll", syncContainerScrollToWindow);
-  scrollContainer.addEventListener("scroll", syncWindowScrollToContainer);
+  window.addEventListener("scroll", syncContainerScrollToWindow, {
+    passive: true,
+  });
+  scrollContainer.addEventListener("scroll", syncWindowScrollToContainer, {
+    passive: true,
+  });
 
   document.addEventListener("click", (e) => {
     if (!e.target.classList.contains("nav-link")) return;
@@ -127,4 +164,42 @@ function scrollParallaxContainerFromDocRoot() {
       scrollContainer.style.opacity = "1";
     });
   });
+}
+
+function setFallbackHeightsForParallaxAndHeader() {
+  const parallaxContainer = document.querySelector(".parallax");
+  const header = document.querySelector(".parallax header");
+  const navbar = document.querySelector(".parallax nav");
+
+  setParallaxContainerHeight();
+  window.addEventListener(
+    "resize",
+    debounce(updateParallaxContainerHeight, 200)
+  );
+
+  function setParallaxContainerHeight() {
+    const headerHeight = window.innerHeight - navbar.offsetHeight;
+    parallaxContainer.style.setProperty("height", `${window.screen.height}px`);
+    header.style.setProperty("height", `${headerHeight}px`);
+  }
+
+  let initialWidth = window.innerWidth;
+  function updateParallaxContainerHeight() {
+    if (window.innerWidth !== initialWidth) {
+      setParallaxContainerHeight();
+      initialWidth = window.innerWidth;
+    }
+  }
+}
+
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
 }

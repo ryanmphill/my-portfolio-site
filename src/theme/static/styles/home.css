@@ -10,7 +10,7 @@
 
 .parallax {
   height: 100vh;
-  height: 100svh;
+  height: 100lvh;
   overflow-x: hidden;
   overflow-y: auto;
   /* overflow-y: clip; */
@@ -64,6 +64,7 @@
   justify-content: center;
   align-items: center;
   height: calc(100% - var(--navbar-height));
+  height: calc(100svh - var(--navbar-height));
   transform-style: preserve-3d;
   z-index: -1;
 }
