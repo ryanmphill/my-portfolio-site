@@ -58,13 +58,13 @@ function scrollParallaxContainerFromDocRoot() {
   const navbar = document.querySelector(".parallax nav");
 
   // Set styles to the .parallax element
-  // scrollContainer.style.setProperty("overflow-y", "hidden");
-  // scrollContainer.style.setProperty("position", "sticky");
-  scrollContainer.style.setProperty("overflow-y", "auto");
+  scrollContainer.style.setProperty("overflow-y", "hidden");
   scrollContainer.style.setProperty("position", "sticky");
+  // scrollContainer.style.setProperty("overflow-y", "auto");
+  // scrollContainer.style.setProperty("position", "sticky");
   // scrollContainer.style.setProperty("scrollbar-width", "none");
   scrollContainer.style.setProperty("top", "0");
-  // scrollContainer.style.willChange = "scroll-position";
+  scrollContainer.style.willChange = "scroll-position";
 
   // Calculate the height of the overflowing content inside of the .parallax element
   // and set the height of the body to be the same as the height of the overflowing content
