@@ -49,7 +49,7 @@ function scrollParallaxContainerFromDocRoot() {
   const navbar = document.querySelector(".parallax nav");
 
   // Set styles to the .parallax element
-  scrollContainer.style.setProperty("overflow-y", "clip");
+  scrollContainer.style.setProperty("overflow-y", "hidden");
   scrollContainer.style.setProperty("position", "sticky");
   scrollContainer.style.setProperty("top", "0");
   scrollContainer.style.willChange = "scroll-position";
