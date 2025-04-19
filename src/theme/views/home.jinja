@@ -4,26 +4,26 @@
 
 {% include "partials/inline-scripts/load_theme.jinja" %}
 
-    <nav id="navbar" class="navbar">
-        <a href="/" class="navbar__logo">RP</a>
-        <button style="margin-left: auto;" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
-            <span class="theme-toggle__icon">
-                Theme
-            </span>
-        </button>
-        <button class="navbar-dropdown-toggle" aria-expanded="false" aria-controls="primary-nav">
-            <span class="navbar__hamburger-wrapper">
-                {% include "svg/hamburger.jinja" %}
-            </span>
-        </button>
-        <ul id="primary-nav" class="navbar__links">
-            <li><a class="nav-link" href="#about">About</a></li>
-            <li><a class="nav-link" href="#technology">Skills</a></li>
-            <li><a class="nav-link" href="#projects">Projects</a></li>
-            <li><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <div class="parallax">
+<nav id="navbar" class="navbar">
+    <a href="/" class="navbar__logo">RP</a>
+    <button style="margin-left: auto;" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+        <span class="theme-toggle__icon">
+            Theme
+        </span>
+    </button>
+    <button class="navbar-dropdown-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="navbar__hamburger-wrapper">
+            {% include "svg/hamburger.jinja" %}
+        </span>
+    </button>
+    <ul id="primary-nav" class="navbar__links">
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#technology">Skills</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+    </ul>
+</nav>
+<div class="parallax">
     {% include "partials/inline-scripts/hide_container.jinja" %}
     <header class="homepage-header">
         <div class="homepage-header__heading title-fade-in">
@@ -38,58 +38,58 @@
         {% include "svg/hero/mountain3.jinja" %}
     </header>
     <div class="parallax-spacer"></div>
-    </div>
-    <main class="content">
-        <section id="about" class="homepage__about homepage__section">
-            <h2 class="section-heading">About</h2>
-            <div class="homepage__about-row">
-                <div class="homepage__about-row-text">
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae
-                        pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean
-                        sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa
-                        nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti
-                        sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
-                </div>
-                <div class="homepage__about-img-container">
-                    <img class="homepage__about-img"
-                        srcset="/static/images/website-portrait-transparent-480w.png 480w, /static/images/website-portrait-transparent-720w.png 720w, /static/images/website-portrait-transparent-1080w.png 1080w"
-                        sizes="(max-width: 500px) 480px, (max-width: 800px) 720px, 1080px"
-                        src="/static/images/website-portrait-transparent-1080w.png" alt="Ryan Phillips Portrait" />
-                </div>
+</div>
+<main class="content">
+    <section id="about" class="homepage__about homepage__section">
+        <h2 class="section-heading">About</h2>
+        <div class="homepage__about-row">
+            <div class="homepage__about-row-text">
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae
+                    pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean
+                    sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa
+                    nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti
+                    sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem
-                placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor.
-                Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia
-                integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per
-                conubia nostra inceptos himenaeos.</p>
-        </section>
-        <section id="technology" class="homepage__section">
-            <h2 class="section-heading">Skills</h2>
-            <div class="technology-badges">
-                {% include "svg/tech-badges/javascript.jinja" %}
-                {% include "svg/tech-badges/typescript.jinja" %}
-                {% include "svg/tech-badges/react.jinja" %}
-                {% include "svg/tech-badges/next.jinja" %}
-                {% include "svg/tech-badges/python.jinja" %}
-                {% include "svg/tech-badges/django.jinja" %}
-                {% include "svg/tech-badges/php.jinja" %}
-                {% include "svg/tech-badges/laravel.jinja" %}
-                {% include "svg/tech-badges/wordpress.jinja" %}
-                {% include "svg/tech-badges/mysql.jinja" %}
-                {% include "svg/tech-badges/sqlite.jinja" %}
-                {% include "svg/tech-badges/aws.jinja" %}
-                {% include "svg/tech-badges/docker.jinja" %}
-                {% include "svg/tech-badges/html.jinja" %}
-                {% include "svg/tech-badges/css.jinja" %}
-                {% include "svg/tech-badges/sass.jinja" %}
-                {% include "svg/tech-badges/tailwind.jinja" %}
-                {% include "svg/tech-badges/bootstrap.jinja" %}
+            <div class="homepage__about-img-container">
+                <img class="homepage__about-img"
+                    srcset="/static/images/website-portrait-transparent-480w.png 480w, /static/images/website-portrait-transparent-720w.png 720w, /static/images/website-portrait-transparent-1080w.png 1080w"
+                    sizes="(max-width: 500px) 480px, (max-width: 800px) 720px, 1080px"
+                    src="/static/images/website-portrait-transparent-1080w.png" alt="Ryan Phillips Portrait" />
             </div>
-        </section>
-        <section id="projects" class="homepage__section">
-            <h2 class="section-heading">Projects</h2>
-        </section>
-        <section id="contact" class="homepage__section">
-            <h2 class="section-heading">Contact</h2>
-        </section>
-    </main>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem
+            placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor.
+            Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia
+            integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per
+            conubia nostra inceptos himenaeos.</p>
+    </section>
+    <section id="technology" class="homepage__section">
+        <h2 class="section-heading">Skills</h2>
+        <div class="technology-badges">
+            {% include "svg/tech-badges/javascript.jinja" %}
+            {% include "svg/tech-badges/typescript.jinja" %}
+            {% include "svg/tech-badges/react.jinja" %}
+            {% include "svg/tech-badges/next.jinja" %}
+            {% include "svg/tech-badges/python.jinja" %}
+            {% include "svg/tech-badges/django.jinja" %}
+            {% include "svg/tech-badges/php.jinja" %}
+            {% include "svg/tech-badges/laravel.jinja" %}
+            {% include "svg/tech-badges/wordpress.jinja" %}
+            {% include "svg/tech-badges/mysql.jinja" %}
+            {% include "svg/tech-badges/sqlite.jinja" %}
+            {% include "svg/tech-badges/aws.jinja" %}
+            {% include "svg/tech-badges/docker.jinja" %}
+            {% include "svg/tech-badges/html.jinja" %}
+            {% include "svg/tech-badges/css.jinja" %}
+            {% include "svg/tech-badges/sass.jinja" %}
+            {% include "svg/tech-badges/tailwind.jinja" %}
+            {% include "svg/tech-badges/bootstrap.jinja" %}
+        </div>
+    </section>
+    <section id="projects" class="homepage__section">
+        <h2 class="section-heading">Projects</h2>
+    </section>
+    <section id="contact" class="homepage__section">
+        <h2 class="section-heading">Contact</h2>
+    </section>
+</main>
