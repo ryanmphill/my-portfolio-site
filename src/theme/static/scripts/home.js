@@ -27,6 +27,7 @@ function fadeInSectionsOnScrollIntersect() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("fade-in");
+            entry.target.style.visibility = "visible";
           } else {
             // Optionally remove class when not in view
           }
@@ -41,6 +42,11 @@ function fadeInSectionsOnScrollIntersect() {
     // Select all elements with the class "fade-in-section"
     const fadeInSections = document.querySelectorAll("section");
 
+    fadeInSections.forEach((section) => {
+      // Set initial opacity to 0
+      section.style.visibility = "hidden";
+    });
+
     // Observe each section
     fadeInSections.forEach((section) => {
       observer.observe(section);
@@ -53,9 +59,9 @@ function scrollParallaxContainerFromDocRoot() {
   const scrollContainer = document.querySelector(".parallax");
 
   // Get the height of the all of the inner content in the .parallax element
-  const mainContent = document.querySelector(".parallax .content");
+  const mainContent = document.querySelector(".content");
   const header = document.querySelector(".parallax header");
-  const navbar = document.querySelector(".parallax nav");
+  const navbar = document.querySelector(".navbar");
 
   // Set styles to the .parallax element
   scrollContainer.style.setProperty("overflow-y", "hidden");
@@ -63,7 +69,9 @@ function scrollParallaxContainerFromDocRoot() {
   // scrollContainer.style.setProperty("overflow-y", "auto");
   // scrollContainer.style.setProperty("position", "sticky");
   // scrollContainer.style.setProperty("scrollbar-width", "none");
-  scrollContainer.style.setProperty("top", "0");
+  const navHeight = navbar.offsetHeight;
+  scrollContainer.style.setProperty("padding-top", `${navHeight}px`);
+  scrollContainer.style.setProperty("top", `0`);
   scrollContainer.style.willChange = "scroll-position";
 
   // Calculate the height of the overflowing content inside of the .parallax element
@@ -80,10 +88,10 @@ function scrollParallaxContainerFromDocRoot() {
     );
   }
 
-  setBodyHeight();
-  window.addEventListener("resize", debounce(updateBodyHeight, 200));
+  // setBodyHeight();
+  // window.addEventListener("resize", debounce(updateBodyHeight, 200));
 
-  window.addEventListener("load", setBodyHeight);
+  // window.addEventListener("load", setBodyHeight);
   let lastWidth = window.innerWidth;
   function updateBodyHeight() {
     if (lastWidth !== window.innerWidth) {
@@ -152,11 +160,18 @@ function scrollParallaxContainerFromDocRoot() {
     const target = e.target.getAttribute("href");
     const targetElement = document.querySelector(target);
     if (!targetElement) return;
-    const targetOffsetTop = targetElement.offsetTop;
-    scrollContainer.scrollTo({
+    const mainContentOffsetTop = mainContent.offsetTop;
+    const targetOffsetTop = targetElement.offsetTop + mainContentOffsetTop;
+    // scrollContainer.scrollTo({
+    //   top: targetOffsetTop,
+    //   behavior: "smooth",
+    // });
+    console.log("targetOffsetTop", targetOffsetTop);
+    window.scrollTo({
       top: targetOffsetTop,
       behavior: "smooth",
     });
+    setTimeout(() => console.log("currentScrollY", window.scrollY), 3000);
   });
 
   // Scroll (parallax) container was previously hidden for smooth rendering

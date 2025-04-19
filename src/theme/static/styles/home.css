@@ -8,9 +8,17 @@
   padding-bottom: 2px;
 } */
 
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+}
+
 .parallax {
   height: 100vh;
-  height: 100lvh;
+  height: 100svh;
   overflow-x: hidden;
   overflow-y: auto;
   /* overflow-y: clip; */
@@ -58,7 +66,7 @@
 
 
 .homepage-header {
-  --navbar-height: 39px;
+  --navbar-height: 64px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -190,11 +198,21 @@
   background-color: transparent;
 }
 
-.content {
+.content,
+.parallax-spacer {
   background-color: var(--background-color);
   /* Add light shadow to top for fog/mist effect */
   box-shadow: 0 0 10px 10px var(--background-color);
   padding: 1rem 0.5rem;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+}
+
+.parallax-spacer {
+  height: 1500px;
 }
 
 .homepage__section {

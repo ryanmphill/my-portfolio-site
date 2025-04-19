@@ -4,8 +4,6 @@
 
 {% include "partials/inline-scripts/load_theme.jinja" %}
 
-<div class="parallax">
-    {% include "partials/inline-scripts/hide_container.jinja" %}
     <nav id="navbar" class="navbar">
         <a href="/" class="navbar__logo">RP</a>
         <button style="margin-left: auto;" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
@@ -25,6 +23,8 @@
             <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
     </nav>
+    <div class="parallax">
+    {% include "partials/inline-scripts/hide_container.jinja" %}
     <header class="homepage-header">
         <div class="homepage-header__heading title-fade-in">
             <h1 class="homepage-header__title">Ryan Phillips</h1>
@@ -37,6 +37,8 @@
         {% include "svg/hero/mountain2.jinja" %}
         {% include "svg/hero/mountain3.jinja" %}
     </header>
+    <div class="parallax-spacer"></div>
+    </div>
     <main class="content">
         <section id="about" class="homepage__about homepage__section">
             <h2 class="section-heading">About</h2>
@@ -91,4 +93,3 @@
             <h2 class="section-heading">Contact</h2>
         </section>
     </main>
-</div>
