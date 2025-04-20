@@ -60,7 +60,7 @@ function scrollParallaxContainerFromDocRoot() {
 
   // Get the height of the all of the inner content in the .parallax element
   const mainContent = document.querySelector(".content");
-  const header = document.querySelector(".parallax header");
+  const header = document.querySelector(".homepage-header");
   const navbar = document.querySelector(".navbar");
 
   // Set styles to the .parallax element
