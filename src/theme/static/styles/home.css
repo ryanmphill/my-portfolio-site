@@ -410,3 +410,14 @@
     text-align: center;
   }
 }
+
+@media (prefers-reduced-motion) {
+  .sun-slide-up {
+    animation: none;
+  }
+
+  .parallax {
+    position: relative !important;
+    overflow: clip !important;
+  }
+}
