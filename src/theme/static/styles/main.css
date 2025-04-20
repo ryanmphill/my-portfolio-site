@@ -11,7 +11,7 @@
   --nav-background: hsl(35 75% 95% / 1);
   --text-color: #333;
   --font-family-display: "Della Respira", serif;
-  --font-family-body: "Open Sans", sans-serif;
+  --font-family-body: "Open Sans", verdana, sans-serif;
   scrollbar-color: var(--primary-color) var(--background-color);
 }
 
@@ -59,7 +59,7 @@ h4,
 h5,
 h6,
 .font-display {
-  font-family: "Della Respira", serif;
+  font-family: var(--font-family-display);
   font-weight: 400;
   font-style: normal;
   color: var(--secondary-color);
