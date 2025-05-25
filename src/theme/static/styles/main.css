@@ -117,6 +117,17 @@ code {
   overflow-wrap: break-word;
 }
 
+.sr-only {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
 /* Transitions for theme change */
 .theme-transition, .theme-transition *, .theme-transition .navbar, .theme-transition .navbar * {
   transition: background-color 1s ease-in-out, color 1s ease-in-out;
