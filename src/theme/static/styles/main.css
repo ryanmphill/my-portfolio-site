@@ -13,6 +13,7 @@
   --font-family-display: "Della Respira", serif;
   --font-family-body: "Open Sans", verdana, sans-serif;
   scrollbar-color: var(--primary-color) var(--background-color);
+  --navbar-height: var(--nav-height, 64px);
 }
 
 .dark-theme {
