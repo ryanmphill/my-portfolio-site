@@ -26,18 +26,17 @@ export function applyColorTheme() {
     toggleDarkMode(evt.matches);
     darkModeState = evt.matches;
     setDarkModeLocalStorage(evt.matches);
-    themeToggleBtn.setAttribute("aria-pressed", evt.matches);
+    themeToggleBtn.checked = evt.matches;
   };
 
-  themeToggleBtn.setAttribute("aria-pressed", darkModeState);
+  themeToggleBtn.checked = darkModeState;
 
   // Toggles the "dark-mode" class on click and sets localStorage state
-  themeToggleBtn.addEventListener("click", () => {
+  themeToggleBtn.addEventListener("change", async () => {
+    await new Promise((resolve) => setTimeout(resolve, 250));
     document.body.classList.add("theme-transition");
 
     darkModeState = !darkModeState;
-
-    themeToggleBtn.setAttribute("aria-pressed", darkModeState);
 
     toggleDarkMode(darkModeState);
     setDarkModeLocalStorage(darkModeState);
@@ -45,4 +44,13 @@ export function applyColorTheme() {
       document.body.classList.remove("theme-transition");
     }, 3000);
   });
+
+  const slider = document.querySelector(".checkbox-label .ball");
+  setTimeout(() => {
+    slider.style.setProperty("transition", "transform 0.2s linear");
+  }, 200);
+
+  document
+    .querySelector(".checkbox-label")
+    .style.setProperty("visibility", "visible");
 }
