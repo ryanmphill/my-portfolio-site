@@ -1,12 +1,17 @@
 export default function homeInit() {
-  // Check if lvh and svh are supported in css
-  const supportsLvh = CSS.supports("height", "100lvh");
-  const supportsSvh = CSS.supports("height", "100svh");
+  // // Check if lvh and svh are supported in css
+  // const supportsLvh = CSS.supports("height", "100lvh");
+  // const supportsSvh = CSS.supports("height", "100svh");
 
-  // If lvh and svh are not supported, set the height of the parallax container to screen.height, and the height of the header to window.innerHeight - navbar.offsetHeight
-  if (!supportsLvh || !supportsSvh) {
-    setFallbackHeightsForParallaxAndHeader();
-  }
+  // // If lvh and svh are not supported, set the height of the parallax container to screen.height, and the height of the header to window.innerHeight - navbar.offsetHeight
+  // if (!supportsLvh || !supportsSvh) {
+  //   setFallbackHeightsForParallaxAndHeader();
+  // }
+
+  setViewportHeightVariable();
+  setNavHeightVariable();
+  window.addEventListener("load", setNavHeightVariable);
+  window.addEventListener("resize", debounce(handleViewportWidthChange, 100));
 
   fadeInSectionsOnScrollIntersect();
   scrollParallaxContainerFromDocRoot();
@@ -15,6 +20,36 @@ export default function homeInit() {
       .querySelector(".homepage-header__layer0")
       .style.removeProperty("will-change");
   }, 2000);
+}
+
+function setViewportHeightVariable() {
+  // Set the viewport height variable to the height of the viewport
+  // This is used to set the height of the parallax container and header
+  const vh = Math.round(window.innerHeight) * 0.01;
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+}
+
+function setNavHeightVariable() {
+  // Set the navbar height variable to the height of the navbar
+  // This is used to set the padding-top of the parallax container
+  const navbar = document.querySelector(".navbar");
+  if (navbar) {
+    const navHeight = navbar.offsetHeight;
+    document.documentElement.style.setProperty(
+      "--nav-height",
+      `${navHeight}px`
+    );
+  }
+}
+
+let lastViewportWidth = window.innerWidth;
+function handleViewportWidthChange(e) {
+  // Check if the viewport width has changed
+  if (lastViewportWidth !== window.innerWidth) {
+    // Update the viewport height variable
+    setViewportHeightVariable();
+    lastViewportWidth = window.innerWidth;
+  }
 }
 
 // Intersection Observer for fade-in effect
