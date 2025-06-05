@@ -327,6 +327,11 @@
   box-shadow: inset 0 -40px 20px var(--background-color);
 }
 
+.no-header-animation {
+  position: relative !important;
+  overflow: clip !important;
+}
+
 @media (min-width: 576px) {
   .homepage__about-img-container {
     width: 30%;
@@ -464,7 +469,7 @@
     right: -22vw;
   }
 }
- 
+
 @media (min-width: 1600px) {
   .parallax-layer.homepage-header__layer0 {
     bottom: 8rem;

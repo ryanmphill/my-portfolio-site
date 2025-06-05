@@ -1,13 +1,4 @@
 export default function homeInit() {
-  // // Check if lvh and svh are supported in css
-  // const supportsLvh = CSS.supports("height", "100lvh");
-  // const supportsSvh = CSS.supports("height", "100svh");
-
-  // // If lvh and svh are not supported, set the height of the parallax container to screen.height, and the height of the header to window.innerHeight - navbar.offsetHeight
-  // if (!supportsLvh || !supportsSvh) {
-  //   setFallbackHeightsForParallaxAndHeader();
-  // }
-
   setViewportHeightVariable();
   setNavHeightVariable();
   window.addEventListener("load", setNavHeightVariable);
@@ -15,11 +6,16 @@ export default function homeInit() {
 
   fadeInSectionsOnScrollIntersect();
   scrollParallaxContainerFromDocRoot();
-  setTimeout(() => {
-    document
-      .querySelector(".homepage-header__layer0")
-      .style.removeProperty("will-change");
-  }, 2000);
+  document
+    .querySelector(".homepage-header__layer0.sun-slide-up")
+    .addEventListener("animationend", (e) => {
+      setTimeout(() => {
+        e.target.style.removeProperty("will-change");
+      }, 500);
+    });
+  document.addEventListener("DOMContentLoaded", () =>
+    removeAnimationOnLowRefreshRate()
+  );
 }
 
 function setViewportHeightVariable() {
@@ -69,7 +65,7 @@ function fadeInSectionsOnScrollIntersect() {
         });
       },
       {
-        threshold: 0, // Trigger when 10% of the element is visible
+        threshold: 0.2, // Trigger when 10% of the element is visible
         rootMargin: "0px", // Adjust the root margin to trigger earlier
       }
     );
@@ -201,12 +197,12 @@ function scrollParallaxContainerFromDocRoot() {
     //   top: targetOffsetTop,
     //   behavior: "smooth",
     // });
-    console.log("targetOffsetTop", targetOffsetTop);
+    // console.log("targetOffsetTop", targetOffsetTop);
     window.scrollTo({
       top: targetOffsetTop,
       behavior: "smooth",
     });
-    setTimeout(() => console.log("currentScrollY", window.scrollY), 3000);
+    // setTimeout(() => console.log("currentScrollY", window.scrollY), 3000);
   });
 
   // Scroll (parallax) container was previously hidden for smooth rendering
@@ -255,4 +251,58 @@ function debounce(func, wait) {
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
   };
+}
+
+function getRefreshRate(maxFrames = 25) {
+  return new Promise((resolve) => {
+    let lastFrameTime = performance.now();
+    let count = 0;
+    let refreshRates = [];
+    maxFrames = maxFrames + 2; // Add two frames to skip initial fluctuations
+
+    function update() {
+      count++;
+      const currentTime = performance.now();
+      const elapsedTime = currentTime - lastFrameTime; // Calculate elapsed time in milliseconds
+
+      // Update last frame time
+      lastFrameTime = currentTime;
+
+      // Log the elapsed time
+      if (count > 2) {
+        // Skip the first two frames to avoid initial fluctuations
+        refreshRates.push(elapsedTime.toFixed(2));
+      }
+
+      // Call the update function for the next frame
+      if (count <= maxFrames + 2) {
+        requestAnimationFrame(update);
+      } else {
+        // Calculate the average refresh rate
+        const total = refreshRates.reduce(
+          (acc, val) => acc + parseFloat(val),
+          0
+        );
+        const average = total / refreshRates.length;
+        resolve(1000 / average); // Convert to Hz
+      }
+    }
+
+    // Start the animation loop
+    requestAnimationFrame(update);
+  });
+}
+
+async function removeAnimationOnLowRefreshRate(minRate = 34) {
+  // This function exists to prevent a choppy parallax effect on low refresh rate devices,
+  // especially mobile devices on battery saver mode, which can have a refresh rate of 30Hz or lower.
+  const refreshRate = await getRefreshRate();
+  if (refreshRate <= minRate) {
+    // Add "no-animation" class to the .parallax element
+    const parallaxContainer = document.querySelector(".parallax");
+    if (parallaxContainer) {
+      parallaxContainer.classList.add("no-header-animation");
+      console.log("Low refresh rate detected, parallax disabled.");
+    }
+  }
 }
