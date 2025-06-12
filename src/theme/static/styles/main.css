@@ -9,6 +9,9 @@
   --secondary-color: #680317; /* WCAG AAA for small text CURRENT CHOICE */
   --background-color: #fdf8f1; /* hsl(34, 78%, 97%) CURRENT CHOICE */
   --nav-background: hsl(35 75% 95% / 1);
+  --nav-background-hex: #fcf4e9;
+  --nav-background: #F4E0C5; /* Slightly darker for contrast */
+  --nav-background: hsl(35 75% 90% / 1); /* Slightly darker for contrast */
   --text-color: #333;
   --font-family-display: "Della Respira", serif;
   --font-family-body: "Open Sans", verdana, sans-serif;

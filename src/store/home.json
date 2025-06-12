@@ -12,5 +12,55 @@
         "using",
         "Jinja",
         "Macros!"
+    ],
+    "featured_projects": [
+        {
+            "title": "Shodo - A Static Site Generator",
+            "description": "Shodo is a static site generator that allows you to create modular, fast, and SEO optimized websites with ease using file-based routing. It supports generating content from Markdown files, Jinja templates, and JSON. Scaffolding a new project is as simple as running a single command, \"start-shodo-project\". <i><strong>It was used to build this very website!</strong></i>",
+            "image": "/static/images/shodo-import-img-16x9.png",
+            "image_lg": "/static/images/shodo-import-img-3x2.png",
+            "image_sm": "/static/images/shodo-import-img-16x9.png",
+            "image_alt": "Screenshot of Shodo Static Site Generator",
+            "technologies": ["Python", "Jinja", "JavaScript", "HTML"],
+            "github_link": "https://github.com/ryanmphill/shodo-static-gen"
+        },
+        {
+            "title": "WilderWatch",
+            "description": "WilderWatch is an application that allows citizen scientists and nature enthusiasts to track wildlife by creating and participating in geotagging studies. This full stack application features a Django backend with a REST API, a React frontend, and uses Vite for modern JavaScript tooling. It includes user authentication, and Mapbox integration for geolocation data visualization.",
+            "image": "/static/images/wilderwatchscreenshot.png",
+            "image_alt": "Screenshot of WilderWatch Application",
+            "technologies": ["Python", "Django", "JavaScript", "React", "Vite", "React Router"],
+            "project_link": "https://wilderwatch-jekt4.ondigitalocean.app/",
+            "github_link": "https://github.com/ryanmphill/wilder-watch-client"
+        },
+        {
+            "title": "GastroGnome",
+            "description": "GastroGnome is a recipe sharing application that allows users to create, share, and discover recipes. It features a modern, responsive design built with Next.js and React Server Components. Users can follow others, add recipes to their favorites, and view detailed nutritional information for any recipe.",
+            "image": "/static/images/gastro-screenshot-16x9.png",
+            "image_lg": "/static/images/gastro-screenshot-3x2.png",
+            "image_sm": "/static/images/gastro-screenshot-16x9.png",
+            "image_alt": "Screenshot of GastroGnome Application",
+            "technologies": ["TypeScript", "Next.js", "Python", "Django"],
+            "project_link": "",
+            "github_link": "https://github.com/ryanmphill/gastro-gnome-next-client"
+        },
+        {
+            "title": "Project 1",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat.",
+            "image": "https://images.unsplash.com/photo-1455894127589-22f75500213a?q=80&w=1987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "technologies": ["Python", "Flask", "JavaScript", "HTML", "CSS"],
+            "project_link": "#",
+            "github_link": "#",
+            "is_draft": "true"
+        },
+        {
+            "title": "Project 3",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat.",
+            "image": "https://images.unsplash.com/photo-1455894127589-22f75500213a?q=80&w=1987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "technologies": ["PHP", "Laravel", "JavaScript", "HTML", "CSS"],
+            "project_link": "#",
+            "github_link": "#",
+            "is_draft": "true"
+        }
     ]
 }

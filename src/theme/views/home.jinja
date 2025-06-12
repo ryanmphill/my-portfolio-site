@@ -124,6 +124,15 @@
     </section>
     <section id="projects" class="homepage__section">
         <h2 class="section-heading">Projects</h2>
+        <div class="homepage__projects">
+            {% if featured_projects %}
+            {% for project in featured_projects %}
+            {% include "partials/project_card.jinja" %}
+            {% endfor %}
+            {% else %}
+            <p>No featured projects available.</p>
+            {% endif %}
+        </div>
     </section>
     <section id="contact" class="homepage__section">
         <h2 class="section-heading">Contact</h2>
