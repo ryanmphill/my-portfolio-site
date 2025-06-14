@@ -61,7 +61,7 @@ function fadeInSectionsOnScrollIntersect() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("fade-in");
-            entry.target.style.visibility = "visible";
+            entry.target.style.opacity = "1";
           } else {
             // Optionally remove class when not in view
           }
@@ -78,7 +78,7 @@ function fadeInSectionsOnScrollIntersect() {
 
     fadeInSections.forEach((section) => {
       // Set initial opacity to 0
-      section.style.visibility = "hidden";
+      section.style.opacity = "0";
     });
 
     // Observe each section
