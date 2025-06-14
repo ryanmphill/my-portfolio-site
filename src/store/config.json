@@ -10,5 +10,6 @@
             "<link rel=\"icon\" href=\"/static/images/favicons/portfolio-site-favicon-dark.ico\" type=\"image/x-icon\" media=\"(prefers-color-scheme: dark)\">",
             "<link rel=\"apple-touch-icon\" href=\"/static/images/favicons/portfolio-site-favicon-dark.png\">"
             ]
-    }
+    },
+    "current_year": 2025
 }
