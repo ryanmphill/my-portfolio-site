@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "9aa0e5632e0920ba0b5abc64a1893c6a1fc649971c2a4972b176dad673f42d46"
+            "sha256": "d8b9941c41047dfdc4e82c04a7a6f043b52d75077095fa29e4ed9979c0217363"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -18,19 +18,19 @@
     "default": {
         "jinja2": {
             "hashes": [
-                "sha256:4a3aee7acbbe7303aede8e9648d13b8bf88a429282aa6122a993f0ac800cb369",
-                "sha256:bc5dd2abb727a5319567b7a813e6a2e7318c39f4f487cfe6c89c6f9c7d25197d"
+                "sha256:0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d",
+                "sha256:85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==3.1.4"
+            "version": "==3.1.6"
         },
         "markdown2": {
             "hashes": [
-                "sha256:12fc04ea5a87f7bb4b65acf5bf3af1183b20838cc7d543b74c92ec7eea4bbc74",
-                "sha256:190ae60a4bd0425c60c863bede18a9f3d45b1cbf3fbc9f40b4fac336ff2c520b"
+                "sha256:4d502953a4633408b0ab3ec503c5d6984d1b14307e32b325ec7d16ea57524895",
+                "sha256:a8ebb7e84b8519c37bf7382b3db600f1798a22c245bfd754a1f87ca8d7ea63b3"
             ],
-            "markers": "python_version >= '3.8' and python_version < '4'",
-            "version": "==2.5.1"
+            "markers": "python_version >= '3.9' and python_version < '4'",
+            "version": "==2.5.3"
         },
         "markupsafe": {
             "hashes": [
@@ -101,7 +101,7 @@
         },
         "shodo-ssg": {
             "git": "https://github.com/ryanmphill/shodo-static-gen",
-            "ref": "22f165bb4cd1effbd945406b26165dc16bdaf7ad"
+            "ref": "c4e86d8c5a87c8196a32811f8b6fa2941b7ada39"
         }
     },
     "develop": {}
