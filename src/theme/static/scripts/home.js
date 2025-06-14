@@ -16,6 +16,9 @@ export default function homeInit() {
   document.addEventListener("DOMContentLoaded", () =>
     removeAnimationOnLowRefreshRate()
   );
+  document
+    .querySelector("#contact-form")
+    .addEventListener("submit", handleContactFormSubmit);
 }
 
 function setViewportHeightVariable() {
@@ -238,6 +241,60 @@ function setFallbackHeightsForParallaxAndHeader() {
       setParallaxContainerHeight();
       initialWidth = window.innerWidth;
     }
+  }
+}
+
+const loadingSpinner = `
+<div class="loading-spinner" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+`;
+
+let contactFormSubmitting = false;
+async function handleContactFormSubmit(event) {
+  event.preventDefault();
+
+  if (contactFormSubmitting) return;
+  contactFormSubmitting = true;
+  const myForm = event.target;
+  const formData = new FormData(myForm);
+  const submitButton = myForm.querySelector("button[type='submit']");
+  const submitButtonText = submitButton.textContent;
+  // Get the width of the submit button and set it
+  const submitButtonWidth = submitButton.offsetWidth;
+  // Set the button width so it doesn't change when the loading spinner is added
+  submitButton.style.minWidth = `${submitButtonWidth}px`;
+
+  // Add a loading spinner to the submit button
+  submitButton.innerHTML = loadingSpinner;
+  const messageEl = document.querySelector("#contact-response-message");
+
+  try {
+    const response = await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    });
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    if (messageEl) {
+      messageEl.textContent = "Thank you for your message!";
+      messageEl.classList.add("homepage__form-success");
+    }
+    submitButton.textContent = "Message Sent!";
+    submitButton.disabled = true;
+    myForm.reset();
+  } catch (error) {
+    console.error("Error submitting form:", error);
+    if (messageEl) {
+      messageEl.textContent =
+        "There was an error submitting your message. Try again later, or feel free to reach out to me on social media!";
+      messageEl.classList.add("homepage__form-error");
+    }
+    submitButton.textContent = submitButtonText; // Reset the button text
+  } finally {
+    contactFormSubmitting = false;
   }
 }
 

@@ -1,28 +1,32 @@
 {% if project %}
 {% if not project.is_draft or project.is_draft is not defined or project.is_draft | lower == "false" %}
 <article class="homepage__project-card">
-    <div class="homepage__project-image-container">
-        {# If project.image_sm and project.image_lg are present, use picture element to show sm image at
-        viewports < 992px, and large image at 992px and greater. Else, show project.image in a normal image element #}
-            {% if project.image_sm and project.image_lg %} <picture>
-            <source media="(max-width: 991px)" srcset="{{ project.image_sm }}" />
-            <source media="(min-width: 992px)" srcset="{{ project.image_lg }}" />
-            <img class="homepage__project-image" src="{{ project.image_sm }}" alt="{{ project.image_alt }}" />
-            </picture>
-            {% else %}
-            <img class="homepage__project-image" src="{{ project.image }}" alt="{{ project.image_alt }}" />
-            {% endif %}
+    <div class="homepage__project-image-container-outer">
+        <div class="homepage__project-image-container">
+            {# If project.image_sm and project.image_lg are present, use picture element to show sm image at
+            viewports < 992px, and large image at 992px and greater. Else, show project.image in a normal image element
+                #} {% if project.image_sm and project.image_lg %} <picture>
+                <source media="(max-width: 991px)" srcset="{{ project.image_sm }}" />
+                <source media="(min-width: 992px)" srcset="{{ project.image_lg }}" />
+                <img class="homepage__project-image" src="{{ project.image_sm }}" alt="{{ project.image_alt }}" />
+                </picture>
+                {% else %}
+                <img class="homepage__project-image" src="{{ project.image }}" alt="{{ project.image_alt }}" />
+                {% endif %}
+        </div>
     </div>
     <div class="homepage__project-content">
-        <h3 class="homepage__project-title">{{ project.title }}</h3>
-        <p class="homepage__project-description">{{ project.description }}</p>
-        {% if project.technologies %}
-        <div class="homepage__project-tags">
-            {% for tag in project.technologies %}
-            <span class="homepage__project-tag">{{ tag }}</span>
-            {% endfor %}
+        <div>
+            <h3 class="homepage__project-title">{{ project.title }}</h3>
+            <p class="homepage__project-description">{{ project.description }}</p>
+            {% if project.technologies %}
+            <div class="homepage__project-tags">
+                {% for tag in project.technologies %}
+                <span class="homepage__project-tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
-        {% endif %}
 
         <div class="homepage__project-links">
             {% if project.project_link %}

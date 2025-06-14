@@ -7,7 +7,8 @@
     "canonical": "https://ryanphillips.dev",
     "og_title": "Ryan Phillips - Full Stack Developer Portfolio",
     "og_description": "Ryan Phillips is a Nashville based full stack software developer with experience in a variety of web technologies.",
-    "og_image": "https://ryanphillips.dev/static/images/portfolio-screenshot-1200x630.png"
+    "og_image": "https://ryanphillips.dev/static/images/portfolio-screenshot-1200x630.png",
+    "robots": "noai, noimageai"
 }
 @endfrontmatter
 
@@ -155,5 +156,33 @@
     </section>
     <section id="contact" class="homepage__section">
         <h2 class="section-heading">Contact</h2>
+        <p>If you'd like to get in touch, just fill out your details below and I'll get back to you as soon as I can.
+        </p>
+        <form id="contact-form" class="homepage__form homepage__contact-form" name="contact" method="POST"
+            data-netlify="true" netlify-honeypot="favorite-things">
+            <div class="homepage__form-favorite-things">
+                <label>
+                    Don't fill this out if you're human: <input type="text" name="favorite-things" tabindex="-1"
+                        autocomplete="nope" />
+                </label>
+            </div>
+            <div class="homepage__form-group">
+                <label for="contact--name" class="homepage__form-label">Name</label>
+                <input type="text" id="contact--name" name="name" class="homepage__form-input" required>
+            </div>
+            <div class="homepage__form-group">
+                <label for="contact--email" class="homepage__form-label">Email</label>
+                <input type="email" id="contact--email" name="email" class="homepage__form-input" required>
+            </div>
+            <div class="homepage__form-group">
+                <label for="contact--message" class="homepage__form-label">Message</label>
+                <textarea id="contact--message" name="message" class="homepage__form-textarea" rows="5"
+                    required></textarea>
+            </div>
+            <button type="submit" class="homepage__form-button">Send Message</button>
+            <p class="homepage__form-note">I will never share your email with anyone else :&rpar;</p>
+            <div class="homepage__form-response-message" id="contact-response-message">
+            </div>
+        </form>
     </section>
 </main>
