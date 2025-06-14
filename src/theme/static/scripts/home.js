@@ -68,7 +68,7 @@ function fadeInSectionsOnScrollIntersect() {
         });
       },
       {
-        threshold: 0.2, // Trigger when 10% of the element is visible
+        threshold: 0.1, // Trigger when 10% of the element is visible
         rootMargin: "0px", // Adjust the root margin to trigger earlier
       }
     );
