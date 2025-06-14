@@ -3,23 +3,28 @@
 }
 
 :root {
-  --primary-color: #ff6700;
-  --primary-color: #ff2a00;
-  --primary-color: #f34f2e;
-  --primary-color: #ff5c3b;
-  --primary-color: #fc6c4f; /* this */
-  --primary-color: #9f5566; /* WCAG AAA for large text */
+  --primary-color-option-2: #9f5566; /* WCAG AAA for large text */
   --primary-color: #fc5736; /* WCAG AA for large text CURRENT CHOICE */
-  --secondary-color: #ff6700;
-  --secondary-color: #270408;
+  --secondary-color-option-2: #270408;
   --secondary-color: #680317; /* WCAG AAA for small text CURRENT CHOICE */
-  --background-color: #f5f5f5;
-  --background-color: rgb(250, 249, 247);
-  --background-color: hsl(34, 78%, 97%);
   --background-color: #fdf8f1; /* hsl(34, 78%, 97%) CURRENT CHOICE */
+  --nav-background: hsl(35 75% 95% / 1);
+  --nav-background-hex: #fcf4e9;
+  --nav-background: #F4E0C5; /* Slightly darker for contrast */
+  --nav-background: hsl(35 75% 90% / 1); /* Slightly darker for contrast */
   --text-color: #333;
   --font-family-display: "Della Respira", serif;
-  --font-family-body: "Open Sans", sans-serif;
+  --font-family-body: "Open Sans", verdana, sans-serif;
+  scrollbar-color: var(--primary-color) var(--background-color);
+  --navbar-height: var(--nav-height, 64px);
+}
+
+.dark-theme {
+  --background-color: #171629;
+  --nav-background: #292847;
+  --primary-color: #c6d4d6;
+  --secondary-color: #fff;
+  scrollbar-color: var(--background-color) var(--primary-color);
 }
 
 body {
@@ -58,7 +63,7 @@ h4,
 h5,
 h6,
 .font-display {
-  font-family: "Della Respira", serif;
+  font-family: var(--font-family-display);
   font-weight: 400;
   font-style: normal;
   color: var(--secondary-color);
@@ -114,4 +119,24 @@ h6,
 code {
   text-wrap: wrap;
   overflow-wrap: break-word;
+}
+
+.sr-only {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+/* Transitions for theme change */
+.theme-transition, .theme-transition *, .theme-transition .navbar, .theme-transition .navbar * {
+  transition: background-color 1s ease-in-out, color 1s ease-in-out;
+}
+
+.theme-transition svg, .theme-transition .parallax-layer * {
+  transition: fill 1s ease-in-out, stroke 1s ease-in-out;
 }

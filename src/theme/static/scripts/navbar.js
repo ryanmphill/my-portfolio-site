@@ -250,8 +250,13 @@ export function addDisclosureFunctionalityToSubmenus(
       const isClickInsideButton = event.target.closest(
         "button[aria-expanded][aria-controls]"
       );
+      // If a menu element, check if it is an anchor to somewhere on the same page
+      const isClickSamePageAnchor = event.target.closest("a[href^='#']");
       // If the click was outside the menu and its button, close the menu
-      if (!isClickInsideMenu && !isClickInsideButton) {
+      if (
+        (!isClickInsideMenu || isClickSamePageAnchor) &&
+        !isClickInsideButton
+      ) {
         toggleExpand(openIndex, false);
       }
     }

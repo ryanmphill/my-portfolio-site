@@ -1,0 +1,16 @@
+<script>
+    // This is a progressive enhancement to temporarily hide the parallax container
+    // until the scroll position on it is synced with the root scroll position.
+    // This is to prevent the parallax effect from flashing on the screen before the page
+    // is fully loaded and the scroll position is synced, especially when the page is
+    // refreshed from a scroll position other than the top.
+    (function () {
+        const container = document.querySelector(".parallax");
+        container.style.visibility = "hidden";
+        container.style.opacity = "0";
+        setTimeout(() => {
+            container.style.visibility = "visible";
+            container.style.opacity = "1";
+        }, 3000);
+    })();
+</script>
