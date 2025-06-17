@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "esbuild": "0.25.5"
+  },
+  "scripts": {
+    "build": "node esbuild.config.mjs --build",
+    "watch": "node esbuild.config.mjs --watch",
+    "dev": "node esbuild.config.mjs --dev"
+  }
+}
