@@ -2,3 +2,7 @@
 /__pycache__/
 # Build directory
 /dist/
+# esbuild output directory (source is now src/src-scripts/)
+/src/theme/static/scripts/
+# node_modules directory
+/node_modules/

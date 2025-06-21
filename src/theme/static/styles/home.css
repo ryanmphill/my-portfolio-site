@@ -16,6 +16,10 @@
   z-index: 20;
 }
 
+.initially-hidden {
+  opacity: 0;
+}
+
 .parallax {
   height: 100vh;
   height: 100svh;
@@ -26,6 +30,7 @@
   /* overflow-y: clip; */
   background-color: var(--background-color);
   perspective: 10px;
+  padding-top: var(--navbar-height, 64px);
   /* position: sticky;
   top: 0; */
 }

@@ -17,6 +17,8 @@
   --font-family-body: "Open Sans", verdana, sans-serif;
   scrollbar-color: var(--primary-color) var(--background-color);
   --navbar-height: var(--nav-height, 64px);
+  --svh: 1svh;
+  --vh: var(--svh, 1vh);
 }
 
 .dark-theme {
@@ -139,4 +141,12 @@ code {
 
 .theme-transition svg, .theme-transition .parallax-layer * {
   transition: fill 1s ease-in-out, stroke 1s ease-in-out;
+}
+
+/* SVG Icons */
+.icon {
+  width: 0.75em;
+  height: 0.75em;
+  vertical-align: -0.125em;
+  z-index: 1;
 }

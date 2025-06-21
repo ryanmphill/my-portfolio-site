@@ -8,11 +8,19 @@
     "og_title": "Ryan Phillips - Full Stack Developer Portfolio",
     "og_description": "Ryan Phillips is a Nashville based full stack software developer with experience in a variety of web technologies.",
     "og_image": "https://ryanphillips.dev/static/images/ryan-portfolio-screenshot-1200x630.png",
-    "robots": "noai, noimageai"
+    "robots": "noai, noimageai",
+    "head_extra": [
+            "<link rel=\"icon\" href=\"/static/images/favicons/portfolio-site-favicon-light.ico\" type=\"image/x-icon\" media=\"(prefers-color-scheme: light)\">",
+            "<link rel=\"icon\" href=\"/static/images/favicons/portfolio-site-favicon-dark.ico\" type=\"image/x-icon\" media=\"(prefers-color-scheme: dark)\">",
+            "<link rel=\"apple-touch-icon\" href=\"/static/images/favicons/portfolio-site-favicon-dark.png\">",
+            "<script type=\"text/javascript\" src=\"/static/scripts/theme-loader.js\"></script>",
+            "<meta name=\"google-site-verification\" content=\"pgDNe-I4A28kwhiU2v8nT_OkITGThn3bpcyIsHOauIY\" />",
+            "<noscript><style>.initially-hidden{opacity: unset !important;}</style></noscript>"
+            ]
 }
 @endfrontmatter
 
-{% include "partials/inline-scripts/load_theme.jinja" %}
+{# {% include "partials/inline-scripts/load_theme.jinja" %} #}
 
 <nav id="navbar" class="navbar">
     <a href="/" class="navbar__logo">RP</a>
@@ -20,14 +28,14 @@
         <input type="checkbox" role="switch" class="theme-toggle checkbox" id="checkbox">
         <label for="checkbox" class="checkbox-label">
             <span class="sr-only">Toggle dark theme</span>
-            <style>
+            {# <style>
                 .icon {
                     width: 0.75em;
                     height: 0.75em;
                     vertical-align: -0.125em;
                     z-index: 1;
                 }
-            </style>
+            </style> #}
             <svg aria-hidden="true" role="img" title="Toggle light theme" class="icon icon-sun"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
@@ -44,26 +52,27 @@
             <span class="ball"></span>
         </label>
     </div>
-    <script>
+    {# <script>
         document.querySelector(".checkbox-label").style.setProperty("visibility", "hidden");
-    </script>
+    </script> #}
     <button class="navbar-dropdown-toggle" aria-label="Navigation Menu Toggle" aria-expanded="false"
         aria-controls="primary-nav">
         <span class="navbar__hamburger-wrapper">
             {% include "svg/hamburger.jinja" %}
         </span>
     </button>
-    <ul id="primary-nav" class="navbar__links">
+    <ul id="primary-nav" class="navbar__links initially-hidden">
         <li><a class="nav-link" href="#about">About</a></li>
         <li><a class="nav-link" href="#technology">Skills</a></li>
         <li><a class="nav-link" href="#projects">Projects</a></li>
         <li><a class="nav-link" href="#contact">Contact</a></li>
     </ul>
 </nav>
-<header class="parallax">
-    {% include "partials/inline-scripts/hide_container.jinja" %}
+<header class="parallax no-header-animation initially-hidden" id="parallax-container">
+    {# <script type="text/javascript" src="/static/scripts/eager.js"></script> #}
+    {# {% include "partials/inline-scripts/hide_container.jinja" %} #}
     <div class="homepage-header">
-        <div class="homepage-header__heading title-fade-in">
+        <div class="homepage-header__heading initially-hidden {# title-fade-in #}">
             <h1 class="homepage-header__title">Hi, I'm Ryan.</h1>
             <p class="homepage-header__subtitle">A Full Stack Software Developer</p>
         </div>
