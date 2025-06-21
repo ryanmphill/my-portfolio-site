@@ -8,10 +8,10 @@
                 #} {% if project.image_sm and project.image_lg %} <picture>
                 <source media="(max-width: 991px)" srcset="{{ project.image_sm }}" />
                 <source media="(min-width: 992px)" srcset="{{ project.image_lg }}" />
-                <img class="homepage__project-image" src="{{ project.image_sm }}" alt="{{ project.image_alt }}" />
+                <img class="homepage__project-image" src="{{ project.image_sm }}" alt="{{ project.image_alt }}" loading="lazy" />
                 </picture>
                 {% else %}
-                <img class="homepage__project-image" src="{{ project.image }}" alt="{{ project.image_alt }}" />
+                <img class="homepage__project-image" src="{{ project.image }}" alt="{{ project.image_alt }}" loading="lazy" />
                 {% endif %}
         </div>
     </div>
