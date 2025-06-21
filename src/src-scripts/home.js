@@ -16,6 +16,13 @@ export default function homeInit() {
   document.addEventListener("DOMContentLoaded", () =>
     removeAnimationOnLowRefreshRate()
   );
+  document.fonts.addEventListener("loadingdone", (event) => {
+    const headerText = document.querySelector(".homepage-header__heading");
+    if (headerText) {
+      headerText.classList.add("title-fade-in");
+      headerText.classList.remove("initially-hidden");
+    }
+  });
   document
     .querySelector("#contact-form")
     .addEventListener("submit", handleContactFormSubmit);
@@ -107,6 +114,7 @@ function scrollParallaxContainerFromDocRoot() {
   scrollContainer.style.setProperty("padding-top", `${navHeight}px`);
   scrollContainer.style.setProperty("top", `0`);
   scrollContainer.style.willChange = "scroll-position";
+  scrollContainer.classList.remove("no-header-animation");
 
   // Calculate the height of the overflowing content inside of the .parallax element
   // and set the height of the body to be the same as the height of the overflowing content
