@@ -16,13 +16,32 @@ export default function homeInit() {
   document.addEventListener("DOMContentLoaded", () =>
     removeAnimationOnLowRefreshRate()
   );
-  document.fonts.addEventListener("loadingdone", (event) => {
+  // document.fonts.addEventListener("loadingdone", (event) => {
+  //   const headerText = document.querySelector(".homepage-header__heading");
+  //   if (headerText) {
+  //     headerText.classList.add("title-fade-in");
+  //     headerText.classList.remove("initially-hidden");
+  //   }
+  // });
+  let titleFontsLoaded = false;
+  document.fonts.ready.then(() => {
+    if (titleFontsLoaded) return; // If fonts are already loaded, skip this
     const headerText = document.querySelector(".homepage-header__heading");
     if (headerText) {
       headerText.classList.add("title-fade-in");
       headerText.classList.remove("initially-hidden");
+      titleFontsLoaded = true;
     }
   });
+  setTimeout(() => {
+    if (titleFontsLoaded) return; // If fonts are already loaded, skip this
+    const headerText = document.querySelector(".homepage-header__heading");
+    if (headerText) {
+      headerText.classList.add("title-fade-in");
+      headerText.classList.remove("initially-hidden");
+      titleFontsLoaded = true;
+    }
+  }, 200);
   document
     .querySelector("#contact-form")
     .addEventListener("submit", handleContactFormSubmit);
