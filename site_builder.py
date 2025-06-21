@@ -9,4 +9,6 @@ from shodo_ssg import build_static_site
 if __name__ == "__main__":
     # Set the ROOT_PATH variable to the directory of this file
     root_path = os.path.dirname(os.path.abspath(__file__))
+    # Bundle and minify the JavaScript files
+    os.system("npm run build")
     build_static_site(root_path)

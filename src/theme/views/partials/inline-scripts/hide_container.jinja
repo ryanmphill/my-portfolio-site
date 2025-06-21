@@ -5,9 +5,11 @@
     // is fully loaded and the scroll position is synced, especially when the page is
     // refreshed from a scroll position other than the top.
     (function () {
+        return;
         const container = document.querySelector(".parallax");
-        container.style.visibility = "hidden";
-        container.style.opacity = "0";
+        // container.classList.remove("no-header-animation");
+        // container.style.visibility = "hidden";
+        // container.style.opacity = "0";
         setTimeout(() => {
             container.style.visibility = "visible";
             container.style.opacity = "1";

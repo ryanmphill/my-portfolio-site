@@ -91,6 +91,11 @@
   column-gap: 1rem;
   list-style-type: none;
   margin: 0;
+  width: 24.75rem;
+  max-height: 2.25rem;
+  overflow: clip;
+  /* scrollbar-width: none; */
+  /* scrollbar-color: var(--secondary-color) transparent; */
 }
 
 .nav-link {
@@ -126,6 +131,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  visibility: hidden;
 }
 
 .dark-theme .checkbox-label {
@@ -186,6 +192,7 @@
     width: 100%;
     padding: 0;
     background-color: var(--nav-background);
+    max-height: unset;
     height: 0;
     box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.15);
     box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.05);
