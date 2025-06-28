@@ -57,14 +57,16 @@ function setViewportHeightVariable() {
 function setNavHeightVariable() {
   // Set the navbar height variable to the height of the navbar
   // This is used to set the padding-top of the parallax container
-  const navbar = document.querySelector(".navbar");
-  if (navbar) {
-    const navHeight = navbar.offsetHeight;
-    document.documentElement.style.setProperty(
-      "--nav-height",
-      `${navHeight}px`
-    );
-  }
+  window.requestAnimationFrame(() => {
+    const navbar = document.querySelector(".navbar");
+    if (navbar) {
+      const navHeight = navbar.offsetHeight;
+      document.documentElement.style.setProperty(
+        "--nav-height",
+        `${navHeight}px`
+      );
+    }
+  });
 }
 
 let lastViewportWidth = window.innerWidth;
@@ -129,8 +131,9 @@ function scrollParallaxContainerFromDocRoot() {
   // scrollContainer.style.setProperty("overflow-y", "auto");
   // scrollContainer.style.setProperty("position", "sticky");
   // scrollContainer.style.setProperty("scrollbar-width", "none");
-  const navHeight = navbar.offsetHeight;
-  scrollContainer.style.setProperty("padding-top", `${navHeight}px`);
+  // const navHeight = navbar.offsetHeight;
+  // scrollContainer.style.setProperty("padding-top", `${navHeight}px`);
+  scrollContainer.style.setProperty("padding-top", "var(--navbar-height)");
   scrollContainer.style.setProperty("top", `0`);
   scrollContainer.style.willChange = "scroll-position";
   scrollContainer.classList.remove("no-header-animation");

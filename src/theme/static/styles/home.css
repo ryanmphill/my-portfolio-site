@@ -227,6 +227,8 @@
   box-shadow: 0 0 400px var(--primary-color);
   bottom: -14rem;
   right: 20vw;
+  max-width: 580px;
+  max-height: 580px;
 }
 
 .parallax-layer.homepage-header__layer1 {
@@ -798,7 +800,8 @@
   }
 
   .parallax-layer.homepage-header__layer3 {
-    bottom: -3rem;
+    /* bottom: -3rem; */
+    bottom: -7rem;
     right: -30%;
   }
 
@@ -878,6 +881,29 @@
     width: 35rem;
     height: 35rem;
     right: -21vw;
+  }
+}
+
+@media (min-width: 2199.98px) {
+  .parallax,
+  .homepage-header {
+    max-width: 2200px;
+    margin: auto;
+    max-height: 1200px;
+    min-height: 850px;
+  }
+
+  .homepage-header {
+    box-shadow: inset -20px 0 40px var(--background-color);
+  }
+
+  .parallax-layer.homepage-header__layer2 {
+    right: -18%;
+    bottom: -20rem;
+  }
+
+  .parallax-layer.homepage-header__layer0 {
+    right: -24%;
   }
 }
 
