@@ -2,7 +2,8 @@ export default function homeInit() {
   setViewportHeightVariable();
   setNavHeightVariable();
   window.addEventListener("load", setNavHeightVariable);
-  window.addEventListener("resize", debounce(handleViewportWidthChange, 100));
+  window.addEventListener("load", setViewportHeightVariable);
+  window.addEventListener("resize", debounce(handleViewportWidthChange, 200));
 
   fadeInSectionsOnScrollIntersect();
   scrollParallaxContainerFromDocRoot();
@@ -50,8 +51,10 @@ export default function homeInit() {
 function setViewportHeightVariable() {
   // Set the viewport height variable to the height of the viewport
   // This is used to set the height of the parallax container and header
-  const vh = Math.round(window.innerHeight) * 0.01;
-  document.documentElement.style.setProperty("--vh", `${vh}px`);
+  window.requestAnimationFrame(() => {
+    const vh = Math.round(window.innerHeight) * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+  });
 }
 
 function setNavHeightVariable() {
