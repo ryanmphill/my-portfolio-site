@@ -168,6 +168,60 @@ function scrollParallaxContainerFromDocRoot() {
   }
 
   let scrollEventTimeout;
+  let windowScrollingTimeout;
+
+  let currentScrollPosition = 0;
+  let containerIsScrolling = false;
+  let windowIsScrolling = false;
+  const scrollContainerMaxScrollPos = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+
+  function reAddScrollContainerListener() {
+    scrollEventTimeout = setTimeout(() => {
+          scrollContainer.addEventListener(
+            "scroll",
+            syncWindowScrollToContainer,
+            {
+              passive: true,
+            }
+          );
+        }, 200);
+  }
+
+  let scrollContainerPos = scrollContainer.scrollTop;
+  function scrollContainerToCurrentScrollPosition() {
+    // const scrollContainerPos = scrollContainer.scrollTop;
+
+    // If the position is within 0.5 pixels of the current scroll position, do nothing
+    if (Math.abs(scrollContainerPos - currentScrollPosition) < 0.5 && !windowIsScrolling) {
+      containerIsScrolling = false;
+      scrollContainer.scrollTo(0, currentScrollPosition);
+      reAddScrollContainerListener();
+      console.log("Position reached");
+      return;
+    }
+
+    containerIsScrolling = true;
+
+    const amount = Math.max(0.25, Math.abs(scrollContainerPos - currentScrollPosition) / 4);
+    console.log("amount", amount);
+
+    const isScrollingDown = scrollContainerPos < currentScrollPosition;
+    if (isScrollingDown) {
+      scrollContainer.scrollTo({top: scrollContainerPos + amount });
+      scrollContainerPos = scrollContainerPos + amount;
+      if (scrollContainerPos >= scrollContainerMaxScrollPos) {
+        containerIsScrolling = false;
+        reAddScrollContainerListener();
+        console.log("overmax");
+        return;
+      }
+      window.requestAnimationFrame(scrollContainerToCurrentScrollPosition);
+    } else {
+      scrollContainer.scrollTo({top: scrollContainerPos - amount });
+      scrollContainerPos = scrollContainerPos - amount;
+      window.requestAnimationFrame(scrollContainerToCurrentScrollPosition);
+    }
+  }
 
   let containerScrollRequested = false;
   function syncContainerScrollToWindow(e) {
@@ -178,17 +232,31 @@ function scrollParallaxContainerFromDocRoot() {
         syncWindowScrollToContainer
       );
 
+      clearTimeout(windowScrollingTimeout);
+      windowIsScrolling = true;
+      windowScrollingTimeout = setTimeout(() => {
+        windowIsScrolling = false;
+      }, 200);
+
       window.requestAnimationFrame(() => {
-        scrollContainer.scroll(0, window.scrollY);
-        scrollEventTimeout = setTimeout(() => {
-          scrollContainer.addEventListener(
-            "scroll",
-            syncWindowScrollToContainer,
-            {
-              passive: true,
-            }
-          );
-        }, 200);
+        // scrollContainer.scroll(0, window.scrollY);
+        // scrollContainer.scrollTo({ top: window.scrollY, behavior: "smooth" });
+        currentScrollPosition = window.scrollY;
+        if (!containerIsScrolling) {
+          scrollContainerPos = scrollContainer.scrollTop;
+          scrollContainerToCurrentScrollPosition();
+        }
+        
+        // console.log("currentScrollPosition", currentScrollPosition);
+        // scrollEventTimeout = setTimeout(() => {
+        //   scrollContainer.addEventListener(
+        //     "scroll",
+        //     syncWindowScrollToContainer,
+        //     {
+        //       passive: true,
+        //     }
+        //   );
+        // }, 200);
         containerScrollRequested = false;
       });
       containerScrollRequested = true;
@@ -197,6 +265,7 @@ function scrollParallaxContainerFromDocRoot() {
 
   let windowScrollRequested = false;
   function syncWindowScrollToContainer(e) {
+    // return;
     if (!windowScrollRequested) {
       clearTimeout(scrollEventTimeout);
       window.removeEventListener("scroll", syncContainerScrollToWindow);
