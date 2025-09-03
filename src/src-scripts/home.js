@@ -199,7 +199,7 @@ function scrollParallaxContainerFromDocRoot() {
    * by adjusting the scroll position based on the value of dividing the difference between 
    * the current scroll position and the target scroll position by a constant factor.
    */
-  function scrollContainerToCurrentScrollPosition(easingFactor = 8) {
+  function scrollContainerToCurrentScrollPosition(easingFactor = 10) {
     // If the position is within 0.5 pixels of the current scroll position, do nothing
     if (Math.abs(scrollContainerPos - currentScrollPosition) < 0.5 && !windowIsScrolling) {
       containerIsScrolling = false;
