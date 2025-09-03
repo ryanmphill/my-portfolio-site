@@ -167,20 +167,20 @@ function scrollParallaxContainerFromDocRoot() {
     }
   }
 
-  let scrollEventTimeout;
+  // State variables to help with scrolling logic
+  let scrollEventTimeout; // Used for re-adding scroll-sync event listener to either scroll container or window
+  let windowScrollingTimeout; // Used for debouncing the toggling of 'windowIsScrolling' to false
+  let currentScrollPosition = 0; // The current scroll position of the window
+  let containerIsScrolling = false; // Flag to track if the scroll container is currently scrolling
+  let windowIsScrolling = false; // Flag to track if the window is currently scrolling
+  let scrollContainerPos = scrollContainer.scrollTop; // The current scroll position of the scroll container
+  const scrollContainerMaxScrollPos = scrollContainer.scrollHeight - scrollContainer.clientHeight; // The maximum scroll position of the scroll container
 
-  let containerScrollRequested = false;
-  function syncContainerScrollToWindow(e) {
-    if (!containerScrollRequested) {
-      clearTimeout(scrollEventTimeout);
-      scrollContainer.removeEventListener(
-        "scroll",
-        syncWindowScrollToContainer
-      );
-
-      window.requestAnimationFrame(() => {
-        scrollContainer.scroll(0, window.scrollY);
-        scrollEventTimeout = setTimeout(() => {
+  /**
+   * Re-add the scroll event listener to the scroll container after a timeout
+   */
+  function reAddScrollContainerListener() {
+    scrollEventTimeout = setTimeout(() => {
           scrollContainer.addEventListener(
             "scroll",
             syncWindowScrollToContainer,
@@ -189,13 +189,95 @@ function scrollParallaxContainerFromDocRoot() {
             }
           );
         }, 200);
+  }
+
+  /**
+   * Scroll the container to the current scroll position
+   *
+   * This function smoothly scrolls the container to the current scroll position
+   * by calling itself recursively with requestAnimationFrame. It eases the scrolling
+   * by adjusting the scroll position based on the value of dividing the difference between 
+   * the current scroll position and the target scroll position by a constant factor.
+   */
+  function scrollContainerToCurrentScrollPosition(easingFactor = 10) {
+    // If the position is within 0.5 pixels of the current scroll position, do nothing
+    if (Math.abs(scrollContainerPos - currentScrollPosition) < 0.5 && !windowIsScrolling) {
+      containerIsScrolling = false;
+      scrollContainer.scrollTo(0, currentScrollPosition);
+      reAddScrollContainerListener();
+      return;
+    }
+
+    containerIsScrolling = true;
+
+    const amount = Math.max(0.25, Math.abs(scrollContainerPos - currentScrollPosition) / easingFactor);
+
+    const isScrollingDown = scrollContainerPos < currentScrollPosition;
+    if (isScrollingDown) {
+      scrollContainer.scrollTo({top: scrollContainerPos + amount });
+      scrollContainerPos = scrollContainerPos + amount;
+      if (scrollContainerPos >= scrollContainerMaxScrollPos) {
+        containerIsScrolling = false;
+        reAddScrollContainerListener();
+        return;
+      }
+      window.requestAnimationFrame(() => scrollContainerToCurrentScrollPosition());
+    } else {
+      scrollContainer.scrollTo({top: scrollContainerPos - amount });
+      scrollContainerPos = scrollContainerPos - amount;
+      window.requestAnimationFrame(() => scrollContainerToCurrentScrollPosition());
+    }
+  }
+
+  let containerScrollRequested = false; // Used to ensure function only runs once per animation frame
+  /**
+   * Sync the scroll position of the scrollable container to the window scroll position 
+   * 
+   * This function should be directly attached to the window scroll event and be called
+   * whenever the window is scrolled. Every time it is called, it will update a state
+   * variable with the current window scroll position. When first called, it will call the
+   * `scrollContainerToCurrentScrollPosition` function, which initiates the scrolling
+   * of the container to the current scroll position, and won't call that function again until
+   * scrolling has stopped and both `scrollContainerPos` and `currentScrollPosition` are equal.
+   */
+  function syncContainerScrollToWindow(e) {
+    if (!containerScrollRequested) {
+      clearTimeout(scrollEventTimeout); // Clears callback that will re-add 
+      // the syncWindowScrollToContainer listener 
+
+      // Remove the listener while this function is running
+      scrollContainer.removeEventListener(
+        "scroll",
+        syncWindowScrollToContainer
+      );
+
+      clearTimeout(windowScrollingTimeout);
+      windowIsScrolling = true;
+      windowScrollingTimeout = setTimeout(() => {
+        windowIsScrolling = false;
+      }, 200);
+
+      window.requestAnimationFrame(() => {
+        currentScrollPosition = window.scrollY;
+        if (!containerIsScrolling) {
+          scrollContainerPos = scrollContainer.scrollTop;
+          scrollContainerToCurrentScrollPosition();
+        }
         containerScrollRequested = false;
       });
       containerScrollRequested = true;
     }
   }
 
-  let windowScrollRequested = false;
+  let windowScrollRequested = false; // Used to ensure function only runs once per animation frame
+  /**
+   * Sync the window scroll position to the scrollable container
+   * 
+   * This function should be directly attached to the scroll event of the scrollable container
+   * and be called whenever the container is scrolled. It will scroll the window to the same
+   * position as the container. This shouldn't be needed often, if at all, but will keep scrolls 
+   * in sync if the scrollable container is tabbed through to get to a button or any other edge case.
+   */
   function syncWindowScrollToContainer(e) {
     if (!windowScrollRequested) {
       clearTimeout(scrollEventTimeout);
@@ -214,6 +296,7 @@ function scrollParallaxContainerFromDocRoot() {
     }
   }
 
+  // Add the listeners to keep the two scroll positions in sync
   window.addEventListener("scroll", syncContainerScrollToWindow, {
     passive: true,
   });
