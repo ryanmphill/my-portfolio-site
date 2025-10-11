@@ -99,7 +99,7 @@ function fadeInSectionsOnScrollIntersect() {
         });
       },
       {
-        threshold: 0.1, // Trigger when 10% of the element is visible
+        threshold: 0.15, // Trigger when 10% of the element is visible
         rootMargin: "0px", // Adjust the root margin to trigger earlier
       }
     );
@@ -199,7 +199,7 @@ function scrollParallaxContainerFromDocRoot() {
    * by adjusting the scroll position based on the value of dividing the difference between 
    * the current scroll position and the target scroll position by a constant factor.
    */
-  function scrollContainerToCurrentScrollPosition(easingFactor = 10) {
+  function scrollContainerToCurrentScrollPosition(easingFactor = 6) {
     // If the position is within 0.5 pixels of the current scroll position, do nothing
     if (Math.abs(scrollContainerPos - currentScrollPosition) < 0.5 && !windowIsScrolling) {
       containerIsScrolling = false;
@@ -210,7 +210,9 @@ function scrollParallaxContainerFromDocRoot() {
 
     containerIsScrolling = true;
 
-    const amount = Math.max(0.25, Math.abs(scrollContainerPos - currentScrollPosition) / easingFactor);
+    const amount = Math.max(0.05, Math.abs(scrollContainerPos - currentScrollPosition) / easingFactor);
+
+    console.log("amount scrolled", amount);
 
     const isScrollingDown = scrollContainerPos < currentScrollPosition;
     if (isScrollingDown) {
