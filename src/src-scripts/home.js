@@ -212,8 +212,6 @@ function scrollParallaxContainerFromDocRoot() {
 
     const amount = Math.max(0.05, Math.abs(scrollContainerPos - currentScrollPosition) / easingFactor);
 
-    console.log("amount scrolled", amount);
-
     const isScrollingDown = scrollContainerPos < currentScrollPosition;
     if (isScrollingDown) {
       scrollContainer.scrollTo({top: scrollContainerPos + amount });
