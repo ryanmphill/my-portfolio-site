@@ -1,9 +1,57 @@
-<div class="container" style="text-align: center;">
-<header class="page-header">
-    <h1 class="page-header__title">Thank you!</h1>
+@frontmatter
+{
+    "title": "Blog",
+    "body_class": "blog-page",
+    "author": "Ryan Phillips",
+    "description": "Tech articles, tutorials, and development-focused blogs from Ryan Phillips, a Nashville based full stack software developer.",
+    "google_font_link": "https://fonts.googleapis.com/css2?family=Della+Respira&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap",
+    "canonical": "https://ryanphillips.dev",
+    "og_title": "Blog - Ryan Phillips",
+    "og_site_name": "Ryan Phillips",
+    "og_description": "Tech articles, tutorials, and development-focused blogs from Ryan Phillips, a Nashville based full stack software developer.",
+    "og_image": "https://ryanphillips.dev/static/images/ryan-portfolio-screenshot-1200x630.png",
+    "og_locale": "en_US",
+    "og_url": "https://ryanphillips.dev",
+    "robots": "noai, noimageai",
+    "head_extra": [
+            "<link rel=\"icon\" href=\"/static/images/favicons/portfolio-site-favicon-light.ico\" type=\"image/x-icon\" media=\"(prefers-color-scheme: light)\">",
+            "<link rel=\"icon\" href=\"/static/images/favicons/portfolio-site-favicon-dark.ico\" type=\"image/x-icon\" media=\"(prefers-color-scheme: dark)\">",
+            "<link rel=\"apple-touch-icon\" href=\"/static/images/favicons/portfolio-site-favicon-dark.png\">",
+            "<script type=\"text/javascript\" src=\"/static/scripts/theme-loader.js\"></script>",
+            "<noscript><style>.initially-hidden{opacity: unset !important;}</style></noscript>"
+            ]
+}
+@endfrontmatter
+
+{% include "partials/navbar.jinja" %}
+<header class="archive__header">
+    <div class="archive__header-container">
+        <div class="page-heading">
+            <h1 class="page-title">{{ article.title }}</h1>
+        </div>
+    </div>
 </header>
-<main style="display: flex; flex-direction: column; align-items: center; justify-content: center; max-width: 800px; margin: auto;">
-    {{ article }}
+<main class="content">
+    <section id="recent" class="page-section">
+        {# {% if article.published_dt_local %}
+        <div><em>Published on {{ article.published_dt_local.strftime("%B") }} {{ article.published_dt_local.day }}, {{ article.published_dt_local.year }} at {{ article.published_dt_local.strftime("%I:%M %p") }} {{ article.published_dt_local.strftime("%Z") }}</em></div>
+        {% endif %} #}
+        <div class="blog-article__date">
+            <time datetime="{{ article.published_datetime.isoformat() }}Z">{{ article.published_dt_local.strftime("%B") }} {{ article.published_dt_local.day }}, {{ article.published_dt_local.year }}</time>
+        </div>
+        {{ article.content }}
+    </section>
 </main>
-<footer>Back to<a href="/">Home</a></footer>
-</div>
+<footer id="footer" class="footer">
+    <div class="footer__container">
+        <p class="footer__copyright">&copy; {{ current_year }} Ryan Phillips{#&#8226;#}</p>
+        <span class="footer__messages">
+            &#8226;
+        </span>
+        <p class="footer__messages">
+            Designed and built by me with <span class="footer__heart">&hearts;</span> {# using
+            <a class="footer__link" href="https://github.com/ryanmphill/shodo-static-gen" target="_blank"
+                rel="noopener noreferrer">Shodo</a> #}
+        </p>
+    </div>
+</footer>
