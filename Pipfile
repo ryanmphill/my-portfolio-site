@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-shodo_ssg = {git = "https://github.com/ryanmphill/shodo-static-gen", ref = "c4e86d8c5a87c8196a32811f8b6fa2941b7ada39"}
+shodo-ssg = "*"
 
 [dev-packages]
 
