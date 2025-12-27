@@ -6,6 +6,8 @@
     "tags": ["2025", "free-writing"],
     "description": "This is the official debut of the ryanphillips.dev blog! I think this is as good of an opportunity as any to formally introduce myself and share some of my experiences as a web developer...",
     "og_description": "This is the official debut of the ryanphillips.dev blog! I think this is as good of an opportunity as any to formally introduce myself and share some of my experiences as a web developer...",
+    "canonical": "https://ryanphillips.dev/blog/2025/hello-world",
+    "og_url": "https://ryanphillips.dev/blog/2025/hello-world",
     "published_datetime": "2025-12-23T22:25:46Z"
 }
 @endfrontmatter
