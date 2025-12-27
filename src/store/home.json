@@ -22,6 +22,7 @@
             "image_sm": "/static/images/shodo-import-img-16x9.png",
             "image_alt": "Screenshot of Shodo Static Site Generator",
             "technologies": ["Python", "Jinja", "JavaScript", "HTML"],
+            "project_link": "https://shodo.dev",
             "github_link": "https://github.com/ryanmphill/shodo-static-gen"
         },
         {
