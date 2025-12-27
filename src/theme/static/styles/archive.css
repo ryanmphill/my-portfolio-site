@@ -74,4 +74,10 @@
 .archive__rss-icon {
     width: 1rem;
     display: inline-flex;
+    color: var(--background-color);
+}
+
+.archive__rss-icon > svg {
+    width: 100%;
+    height: auto;
 }
