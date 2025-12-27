@@ -1,0 +1,75 @@
+.page-heading {
+  margin-right: auto;
+  /* margin-left: 3rem; */
+  margin-left: auto;
+  /* margin-bottom: auto; */
+  /* margin-top: 4rem; */
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  position: relative;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0;
+  letter-spacing: 3px;
+  text-align: inherit;
+}
+
+.page-section {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem 2rem 1rem;
+}
+
+.page-section p:first-child {
+  margin-top: 0;
+}
+
+.page-subtitle {
+  /* font-size: 1.37rem; */
+  /* font-weight: 500; */
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-top: 0.75rem;
+  text-align: inherit;
+  font-style: italic;
+}
+
+.page-link {
+    font-size: 1.25rem;
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.page-link:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  /* .page-heading {
+    margin-right: auto;
+    margin-left: 3rem;
+    margin-bottom: 10%;
+    margin-top: unset;
+    position: relative;
+    text-align: left;
+  } */
+
+  .page-title {
+    font-size: 3.35rem;
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+
+  .page-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+}

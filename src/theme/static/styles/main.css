@@ -83,7 +83,8 @@ h6,
   text-align: left;
 }
 
-.section-heading::after {
+.section-heading::after,
+.blog-page h2::after {
   content: "";
   display: block;
   width: 100%;
@@ -110,6 +111,26 @@ h6,
     var(--primary-color) 0%,
     var(--background-color) 33%
   );
+}
+
+.blog-page h2 {
+  font-family: var(--font-family-display);
+  color: var(--primary-color);
+  font-weight: 400;
+  font-size: 1.75rem;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  padding: 0.25rem;
+  text-align: left;
+}
+
+.section-subheading,
+.blog-page h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+  padding: 0.25rem;
 }
 
 .container {

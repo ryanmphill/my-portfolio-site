@@ -1,0 +1,36 @@
+.button-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  min-height: 44px;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button-primary:hover {
+  background-color: var(--secondary-color);
+}
+
+.button-primary:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.homepage__form button:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.button-primary:disabled,
+.button-primary:disabled:hover,
+.button-primary:disabled:focus {
+  opacity: 0.6;
+  pointer-events: none;
+}

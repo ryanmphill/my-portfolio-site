@@ -6,7 +6,9 @@
     "json_config_path": "src/store",
     "favicon_path": "src/favicon.ico",
     "scripts_path": "src/theme/static/scripts",
-    "images_path": "src/theme/static/images",
+    "assets_path": "src/static/assets",
     "styles_path": "src/theme/static/styles",
-    "build_dir": "dist"
+    "build_dir": "dist",
+    "root_files_path": "src/root",
+    "markdown_header_ids": true
 }
