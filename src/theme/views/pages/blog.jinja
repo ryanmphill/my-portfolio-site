@@ -1,0 +1,100 @@
+@frontmatter
+{
+    "title": "Blog - Ryan Phillips",
+    "author": "Ryan Phillips",
+    "description": "Tech articles, tutorials, and development-focused blogs from Ryan Phillips, a Nashville based full stack software developer.",
+    "google_font_link": "https://fonts.googleapis.com/css2?family=Della+Respira&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap",
+    "canonical": "https://ryanphillips.dev",
+    "og_title": "Blog - Ryan Phillips",
+    "og_site_name": "Ryan Phillips",
+    "og_description": "Tech articles, tutorials, and development-focused blogs from Ryan Phillips, a Nashville based full stack software developer.",
+    "og_image": "https://ryanphillips.dev/static/images/ryan-portfolio-screenshot-1200x630.png",
+    "og_locale": "en_US",
+    "og_url": "https://ryanphillips.dev",
+    "robots": "noai, noimageai",
+    "body_class": "blog-archive",
+    "head_extra": [
+            "<link rel=\"icon\" href=\"/static/images/favicons/portfolio-site-favicon-light.ico\" type=\"image/x-icon\" media=\"(prefers-color-scheme: light)\">",
+            "<link rel=\"icon\" href=\"/static/images/favicons/portfolio-site-favicon-dark.ico\" type=\"image/x-icon\" media=\"(prefers-color-scheme: dark)\">",
+            "<link rel=\"apple-touch-icon\" href=\"/static/images/favicons/portfolio-site-favicon-dark.png\">",
+            "<script type=\"text/javascript\" src=\"/static/scripts/theme-loader.js\"></script>",
+            "<noscript><style>.initially-hidden{opacity: unset !important;}</style></noscript>"
+            ],
+    "paginate": "shodo_get_articles",
+    "per_page": "8"
+}
+@endfrontmatter
+
+{% include "partials/navbar.jinja" %}
+<header class="archive__header">
+    <div class="archive__header-container">
+        <div class="page-heading">
+            <h1 class="page-title">Blog</h1>
+            {# <p class="homepage-header__subtitle">A Full Stack Software Developer</p> #}
+            {# <p class="page-subtitle">Tech articles, tutorials, and development-focused blog posts</p> #}
+            {# <div class="archive__rss-icon__container">
+                <a class="archive__rss-icon__link button-primary" href="/feed.xml" aria-label="Blog RSS Feed">
+                    Subscribe 
+                    <span class="archive__rss-icon">
+                    {% include "partials/svg/rss-icon.jinja" %}
+                    </span>
+                </a>
+            </div> #}
+        </div>
+    </div>
+</header>
+<main class="content">
+    <section id="recent" class="page-section">
+        {% if pagination.total_items == 0 %}
+            <p>No posts found.</p>
+        {% endif %}
+        {% if pagination.current_page == 1 %}
+            <h2 class="section-heading">Recent Posts</h2>
+        {% else %}
+            <h2 class="section-heading">Posts - Page {{ pagination.current_page }}</h2>
+        {% endif %}
+        {# <div>
+            <a class="page-link" href="/blog/first-article">First Article</a>
+        </div> #}
+        {% for post in shodo_get_articles({ 
+            "limit": pagination.per_page,
+            "offset": pagination.per_page * (pagination.current_page - 1),
+            "where": {
+                "directory": { "starts_with": "/blog" }
+            },
+            "order_by": { "desc": "published_datetime" }
+        }) %}
+            <a class="blog-archive__post" href="{{ post.path }}" >
+                <span class="page-link blog-archive__post-link" href="{{ post.path }}">{{ post.title or 'Untitled' }}</span>
+                <p class="blog-archive__post-excerpt">{{ shodo_get_excerpt(post.content, 200) }}</p>
+                <div class="blog-archive__post-date">Published on <time datetime="{{ post.published_datetime.isoformat() }}Z">{{ post.published_dt_local.strftime("%B") }} {{ post.published_dt_local.day }}, {{ post.published_dt_local.year }} at {{ post.published_dt_local.strftime("%I:%M %p") }} {{ post.published_dt_local.strftime("%Z") }}</time></div>
+            </a>
+        {% endfor %}
+        <div class="blog-archive__pagination">
+            {{ pagination.page_links }}
+        </div>
+    </section>
+    <section>
+        <div class="archive__rss-icon__container">
+            <a class="archive__rss-icon__link button-primary" href="/feed.xml" aria-label="Blog RSS Feed">
+                Subscribe to Feed
+                <span class="archive__rss-icon">
+                {% include "partials/svg/rss-icon.jinja" %}
+                </span>
+            </a>
+        </div>
+    </section>
+</main>
+<footer id="footer" class="footer">
+    <div class="footer__container">
+        <p class="footer__copyright">&copy; {{ current_year }} Ryan Phillips{#&#8226;#}</p>
+        <span class="footer__messages">
+            &#8226;
+        </span>
+        <p class="footer__messages">
+            Designed and built by me with <span class="footer__heart">&hearts;</span> {# using
+            <a class="footer__link" href="https://github.com/ryanmphill/shodo-static-gen" target="_blank"
+                rel="noopener noreferrer">Shodo</a> #}
+        </p>
+    </div>
+</footer>

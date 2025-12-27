@@ -306,8 +306,9 @@ function scrollParallaxContainerFromDocRoot() {
 
   document.addEventListener("click", (e) => {
     if (!e.target.classList.contains("nav-link")) return;
-    e.preventDefault();
     const target = e.target.getAttribute("href");
+    if (!target.startsWith("#") || target.includes("/")) return;
+    e.preventDefault();
     const targetElement = document.querySelector(target);
     if (!targetElement) return;
     const mainContentOffsetTop = mainContent.offsetTop;
