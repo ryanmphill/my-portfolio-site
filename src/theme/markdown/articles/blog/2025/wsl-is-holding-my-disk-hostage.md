@@ -29,7 +29,7 @@ I had been starting up a Docker container for just about anything and everything
 docker system prune --all --volumes
 ```
 
-I knew I could rebuild everything I needed to, so I wasn't too worried about losing anything important. It was taking a long time to finish, so I knew it must have been building up for a while this time. 
+I knew I could rebuild everything I needed to, so I wasn't too worried about losing anything important. Since it was taking a long time to finish, I knew it must have been building up for a while this time.
 
 Once it finished, I was happy to see over 125GB freed up!
 
@@ -43,7 +43,7 @@ WSL had taken my memory and is now holding it hostage!
 
 ## The Solution
 
-My intuition started tingling again, so I did a quick web search for "WSL lost disk space" and quickly found the answers I was looking for. As it turns out, the virtual hard disk (VHDX) used by WSL can grow automatically more and more disk space is needed, but it's only a one way street. To reclaim that space, we have to roll up our sleeves and do it ourselves.
+My intuition started tingling again, so I did a quick web search for "WSL lost disk space" and quickly found the answers I was looking for. As it turns out, the virtual hard disk (VHDX) used by WSL can grow automatically as more and more disk space is needed, but it's only a one way street. To reclaim that space, we have to roll up our sleeves and do it ourselves.
 
 Here's what has to be done:
 
@@ -55,7 +55,7 @@ wsl --shutdown
 
 ### 2. Locate the Virtual Hard Disk (VHD) file
 
-This is the file that acts as a hard drive for the Linux distribution, storing all its files and settings. It's usually named something like `ext4.vhdx` and located in the `AppData` directory. It's precise location will depend on the Linux distribution being used, and possible also whether you are using Docker Desktop or docker-engine.
+This is the file that acts as a hard drive for the Linux distribution, storing all its files and settings. It's usually named something like `ext4.vhdx` and located in the `AppData` directory. It's precise location will depend on the Linux distribution being used, and possibly whether you are using Docker Desktop or docker-engine as well.
 
 For me, it was located at
 
