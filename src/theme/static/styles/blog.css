@@ -2,7 +2,7 @@
   color: var(--secondary-color);
 }
 
-pre {
+/* pre {
   overflow-x: scroll;
   overflow-y: scroll;
   scrollbar-width: thin;
@@ -13,15 +13,48 @@ pre {
   border-radius: 2px;
   border-top: 4px solid #00aeef;
   box-shadow: inset 0 0 10px #000;
+} */
+
+.blog-page pre {
+    background-color: #2d2d2d;
+    color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    scrollbar-width: thin;
 }
 
-pre span {
+.blog-page code:not(pre code) {
+    background-color: #e2e2e2;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95em;
+    overflow-x: auto;
+    display: inline-flex;
+    scrollbar-width: thin;
+    max-width: 100%;
+    line-height: normal;
+}
+
+.blog-page pre code,
+.blog-page code {
+  text-wrap: unset;
+  overflow-wrap: unset;
+}
+
+.dark-theme .blog-page code:not(pre code) {
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+}
+
+.blog-page pre span {
   counter-increment: line;
   display: block;
   line-height: 1.5rem;
 }
 
-pre span:before {
+.blog-page pre span:before {
   counter-reset: line;
   content: counter(line);
   display: inline-block;
@@ -74,7 +107,34 @@ pre span:before {
   max-width: 80ch;
 }
 
+.blog-page .page-heading {
+  max-width: 80ch;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.blog-page .page-title {
+  font-size: 2.5rem;
+}
+
+.blog-page .content {
+  padding-top: 2rem;
+}
+
 .blog-page :where(p, li, h1, h2, h3, h4, h5, h6) {
   overflow-wrap: break-word;
   text-wrap: pretty;
+}
+
+@media (min-width: 768px) {
+  .blog-page .page-title {
+    font-size: 2.75rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+    .blog-page code:not(pre code) {
+      background-color: #3a3a3a;
+      color: #e0e0e0;
+  }
 }
