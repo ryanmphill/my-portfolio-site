@@ -40,7 +40,7 @@
 }
 
 .title-fade-in {
-  animation: fade-in 1.75s ease-in-out;
+  animation: fade-in 1.5s ease-in-out;
 }
 
 .slide-in {
@@ -288,9 +288,12 @@
   column-gap: 2rem;
   row-gap: 3rem;
   margin-top: 3rem;
+  color: var(--primary-color);
 }
 
-.technology-badges > svg {
+.technology-badges > svg,
+.technology-badges > img,
+.technology-badges > .technology-badge {
   width: 5rem;
 }
 
