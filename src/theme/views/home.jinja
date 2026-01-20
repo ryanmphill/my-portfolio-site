@@ -24,14 +24,10 @@
 }
 @endfrontmatter
 
-{# {% include "partials/inline-scripts/load_theme.jinja" %} #}
-
 {% set is_home_page = true %}
 {% include "partials/navbar.jinja" %}
 
 <header class="parallax no-header-animation initially-hidden" id="parallax-container">
-    {# <script type="text/javascript" src="/static/scripts/eager.js"></script> #}
-    {# {% include "partials/inline-scripts/hide_container.jinja" %} #}
     <div class="homepage-header">
         <div class="homepage-header__heading initially-hidden {# title-fade-in #}">
             <h1 class="homepage-header__title">Hi, I'm Ryan.</h1>
@@ -83,28 +79,90 @@
     <section id="technology" class="homepage__section">
         <h2 class="section-heading">Skills</h2>
         <div class="technology-badges">
-            {% include "partials/svg/tech-badges/javascript.jinja" %}
-            {% include "partials/svg/tech-badges/typescript.jinja" %}
-            {% include "partials/svg/tech-badges/react.jinja" %}
-            {% include "partials/svg/tech-badges/next.jinja" %}
-            {% include "partials/svg/tech-badges/node.jinja" %}
-            {% include "partials/svg/tech-badges/nestjs.jinja" %}
-            {% include "partials/svg/tech-badges/prisma.jinja" %}
-            {% include "partials/svg/tech-badges/python.jinja" %}
-            {% include "partials/svg/tech-badges/django.jinja" %}
-            {% include "partials/svg/tech-badges/php.jinja" %}
-            {% include "partials/svg/tech-badges/laravel.jinja" %}
-            {% include "partials/svg/tech-badges/wordpress.jinja" %}
-            {% include "partials/svg/tech-badges/postgresql.jinja" %}
-            {% include "partials/svg/tech-badges/mysql.jinja" %}
-            {% include "partials/svg/tech-badges/sqlite.jinja" %}
-            {% include "partials/svg/tech-badges/aws.jinja" %}
-            {% include "partials/svg/tech-badges/docker.jinja" %}
-            {% include "partials/svg/tech-badges/html.jinja" %}
-            {% include "partials/svg/tech-badges/css.jinja" %}
-            {% include "partials/svg/tech-badges/sass.jinja" %}
-            {% include "partials/svg/tech-badges/tailwind.jinja" %}
-            {# {% include "partials/svg/tech-badges/bootstrap.jinja" %} #}
+            <svg role="graphics-symbol" width="80" height="80">
+                <title>JavaScript</title>
+                <use href="/static/assets/images/icons/tech-spritesheet.svg#javascript"></use>
+            </svg>
+            <svg role="graphics-symbol" width="80" height="80">
+                <title>TypeScript</title>
+                <use href="/static/assets/images/icons/tech-spritesheet.svg#typescript"></use>
+            </svg>
+            <svg role="graphics-symbol" width="80" height="80">
+                <title>React</title>
+                <use href="/static/assets/images/icons/tech-spritesheet.svg#react"></use>
+            </svg>
+            <svg role="graphics-symbol" width="80" height="80">
+                <title>Next.js</title>
+                <use href="/static/assets/images/icons/tech-spritesheet.svg#nextjs"></use>
+            </svg>
+            <svg role="graphics-symbol" width="80" height="80">
+                <title>Node.js</title>
+                <use href="/static/assets/images/icons/tech-spritesheet.svg#nodejs"></use>
+            </svg>
+            <svg role="graphics-symbol" width="80" height="80">
+                <title>NestJS</title>
+                <use href="/static/assets/images/icons/tech-spritesheet.svg#nestjs"></use>
+            </svg>
+            <svg role="graphics-symbol" width="80" height="80">
+                <title>Prisma</title>
+                <use href="/static/assets/images/icons/tech-spritesheet.svg#prisma"></use>
+            </svg>
+            <svg role="graphics-symbol" width="80" height="80">
+                <title>Python</title>
+                <use href="/static/assets/images/icons/tech-spritesheet.svg#python"></use>
+            </svg>
+            <svg role="graphics-symbol" width="80" height="80">
+                <title>Django</title>
+                <use href="/static/assets/images/icons/tech-spritesheet.svg#django"></use>
+            </svg>
+            <svg role="graphics-symbol" width="80" height="80">
+                <title>PHP</title>
+                <use href="/static/assets/images/icons/tech-spritesheet.svg#php"></use>
+            </svg>
+            <svg role="graphics-symbol" width="80" height="80">
+                <title>Laravel</title>
+                <use href="/static/assets/images/icons/tech-spritesheet.svg#laravel"></use>
+            </svg>
+            <svg role="graphics-symbol" width="80" height="80">
+                <title>WordPress</title>
+                <use href="/static/assets/images/icons/tech-spritesheet.svg#wordpress"></use>
+            </svg>
+            <svg role="graphics-symbol" width="80" height="80">
+                <title>PostgreSQL</title>
+                <use href="/static/assets/images/icons/tech-spritesheet.svg#postgresql"></use>
+            </svg>
+            <svg role="graphics-symbol" width="80" height="80">
+                <title>MySQL</title>
+                <use href="/static/assets/images/icons/tech-spritesheet.svg#mysql"></use>
+            </svg>
+            <svg role="graphics-symbol" width="80" height="80">
+                <title>SQLite</title>
+                <use href="/static/assets/images/icons/tech-spritesheet.svg#sqlite"></use>
+            </svg>
+            <svg role="graphics-symbol" width="80" height="80">
+                <title>AWS</title>
+                <use href="/static/assets/images/icons/tech-spritesheet.svg#aws"></use>
+            </svg>
+            <svg role="graphics-symbol" width="80" height="80">
+                <title>Docker</title>
+                <use href="/static/assets/images/icons/tech-spritesheet.svg#docker"></use>
+            </svg>
+            <svg role="graphics-symbol" width="80" height="80">
+                <title>HTML5</title>
+                <use href="/static/assets/images/icons/tech-spritesheet.svg#html5"></use>
+            </svg>
+            <svg role="graphics-symbol" width="80" height="80">
+                <title>CSS3</title>
+                <use href="/static/assets/images/icons/tech-spritesheet.svg#css3"></use>
+            </svg>
+            <svg role="graphics-symbol" width="80" height="80">
+                <title>Sass</title>
+                <use href="/static/assets/images/icons/tech-spritesheet.svg#sass"></use>
+            </svg>
+            <svg role="graphics-symbol" width="80" height="80">
+                <title>Tailwind CSS</title>
+                <use href="/static/assets/images/icons/tech-spritesheet.svg#tailwindcss"></use>
+            </svg>
         </div>
     </section>
     <section id="projects" class="homepage__section">
@@ -153,14 +211,12 @@
 </main>
 <footer id="footer" class="footer">
     <div class="footer__container">
-        <p class="footer__copyright">&copy; {{ current_year }} Ryan Phillips{#&#8226;#}</p>
+        <p class="footer__copyright">&copy; {{ current_year }} Ryan Phillips</p>
         <span class="footer__messages">
             &#8226;
         </span>
         <p class="footer__messages">
-            Designed and built by me with <span class="footer__heart">&hearts;</span> {# using
-            <a class="footer__link" href="https://github.com/ryanmphill/shodo-static-gen" target="_blank"
-                rel="noopener noreferrer">Shodo</a> #}
+            Designed and built by me with <span class="footer__heart">&hearts;</span>
         </p>
     </div>
 </footer>
