@@ -5,7 +5,7 @@ export default function homeInit() {
   window.addEventListener("load", setViewportHeightVariable);
   window.addEventListener("resize", debounce(handleViewportWidthChange, 200));
 
-  fadeInSectionsOnScrollIntersect();
+  // fadeInSectionsOnScrollIntersect();
   scrollParallaxContainerFromDocRoot();
   document
     .querySelector(".homepage-header__layer0.sun-slide-up")
