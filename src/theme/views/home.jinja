@@ -21,7 +21,7 @@
         "<script type='text/javascript' src='/static/scripts/theme-loader.js' async></script>",
         "<meta name='google-site-verification' content='pgDNe-I4A28kwhiU2v8nT_OkITGThn3bpcyIsHOauIY' />",
         "<script type='application/ld+json'>{\n'@context': 'https://schema.org',\n'@type': 'WebSite',\n'name': 'Ryan Phillips',\n'alternateName': ['Ryan Michael Phillips', 'Ryan M Phillips', 'Ryan Phillips Portfolio', 'ryanphillips'],\n'url': 'https://ryanphillips.dev'\n}</script>",
-        "<noscript><style>.initially-hidden{opacity: unset !important;}</style></noscript>",
+        "{% include 'partials/noscript.jinja' %}",
         "<link rel='preload' href='/static/assets/fonts/Della_Respira/della-respira-normal-400.woff2' as='font' type='font/woff2' crossorigin>",
         "<link rel='preload' href='/static/assets/fonts/open-sans/open-sans-v44-greek_latin_latin-ext_math_symbols-600italic.woff2' as='font' type='font/woff2' crossorigin>",
         "<link rel='preload' href='/static/assets/fonts/open-sans/open-sans-v44-greek_latin_latin-ext_math_symbols-regular.woff2' as='font' type='font/woff2' crossorigin>"
@@ -32,7 +32,7 @@
 {% set is_home_page = true %}
 {% include "partials/navbar.jinja" %}
 
-<header class="parallax no-header-animation initially-hidden" id="parallax-container">
+<header class="parallax initially-hidden" id="parallax-container">
     <div class="homepage-header">
         <div class="homepage-header__heading initially-hidden {# title-fade-in #}">
             <h1 class="homepage-header__title">Hi, I'm Ryan.</h1>
@@ -48,7 +48,7 @@
     </div>
     <div class="parallax-spacer"></div>
 </header>
-<main class="content">
+<main class="content homepage__content">
     <section id="about" class="homepage__about homepage__section">
         <h2 class="section-heading">About</h2>
         <div class="homepage__about-row">
