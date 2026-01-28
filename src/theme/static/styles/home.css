@@ -540,43 +540,6 @@
   outline-offset: 2px;
 }
 
-.homepage__form-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--primary-color);
-  color: var(--background-color);
-  padding: 0.75rem 1.5rem;
-  border: none;
-  min-height: 44px;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.homepage__form-button:hover {
-  background-color: var(--secondary-color);
-}
-
-.homepage__form-button:focus {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
-}
-
-.homepage__form button:focus-visible {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
-}
-
-.homepage__form-button:disabled,
-.homepage__form-button:disabled:hover,
-.homepage__form-button:disabled:focus {
-  opacity: 0.6;
-  pointer-events: none;
-}
-
 .homepage__form-error {
   color: red;
   font-size: 0.875rem;
