@@ -1,3 +1,61 @@
+@font-face {
+  font-family: 'Della Respira';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/static/assets/fonts/Della_Respira/della-respira-normal-400.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* open-sans-regular - greek_latin_latin-ext_math_symbols */
+@font-face {
+  font-display: swap;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/static/assets/fonts/open-sans/open-sans-v44-greek_latin_latin-ext_math_symbols-regular.woff2) format('woff2');
+}
+/* open-sans-italic - greek_latin_latin-ext_math_symbols */
+@font-face {
+  font-display: swap;
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: url(/static/assets/fonts/open-sans/open-sans-v44-greek_latin_latin-ext_math_symbols-italic.woff2) format('woff2');
+}
+/* open-sans-600 - greek_latin_latin-ext_math_symbols */
+@font-face {
+  font-display: swap;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url(/static/assets/fonts/open-sans/open-sans-v44-greek_latin_latin-ext_math_symbols-600.woff2) format('woff2');
+}
+/* open-sans-600italic - greek_latin_latin-ext_math_symbols */
+@font-face {
+  font-display: swap;
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  src: url(/static/assets/fonts/open-sans/open-sans-v44-greek_latin_latin-ext_math_symbols-600italic.woff2) format('woff2');
+}
+/* open-sans-700 - greek_latin_latin-ext_math_symbols */
+@font-face {
+  font-display: swap;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/static/assets/fonts/open-sans/open-sans-v44-greek_latin_latin-ext_math_symbols-700.woff2) format('woff2');
+}
+/* open-sans-700italic - greek_latin_latin-ext_math_symbols */
+@font-face {
+  font-display: swap;
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: url(/static/assets/fonts/open-sans/open-sans-v44-greek_latin_latin-ext_math_symbols-700italic.woff2) format('woff2');
+}
+
 .page-heading {
   margin-right: auto;
   /* margin-left: 3rem; */
