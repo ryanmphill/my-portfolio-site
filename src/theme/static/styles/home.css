@@ -275,10 +275,6 @@
   margin-top: calc(var(--vh, 1svh) * 100);
 }
 
-.parallax.no-header-animation + .homepage__content {
-  margin-top: 0;
-}
-
 .homepage__section {
   max-width: 80rem;
   margin-left: auto;
@@ -305,12 +301,6 @@
 .technology-badges > img,
 .technology-badges > .technology-badge {
   width: 5rem;
-}
-
-.technology-badges > svg path,
-.technology-badges > svg circle,
-.technology-badges > svg g {
-  fill: var(--primary-color) !important;
 }
 
 .homepage__about-row {
@@ -355,11 +345,6 @@
   left: 0;
   width: 100%;
   box-shadow: inset 0 -40px 20px var(--background-color);
-}
-
-.no-header-animation {
-  position: relative !important;
-  overflow: clip !important;
 }
 
 .homepage__projects {
