@@ -16,7 +16,7 @@
     "featured_projects": [
         {
             "title": "Shodo - A Static Site Generator",
-            "description": "Shodo is a static site generator that allows you to create modular, fast, and SEO optimized websites with ease using file-based routing. It supports generating content from Markdown files, Jinja templates, and JSON. Scaffolding a new project is as simple as running a single command, \"start-shodo-project\". <i><strong>I used it to build this website!</strong></i>",
+            "description": "Shodo is a static site generator that allows you to create modular, fast, and SEO optimized websites with ease using file-based routing. It supports generating content from Markdown files, Jinja templates, and JSON. Scaffolding a new project is as simple as running a single command, \"start-shodo-project\". I used it to build this website!",
             "image": "/static/images/shodo-import-img-16x9.png",
             "image_lg": "/static/images/shodo-import-img-3x2.png",
             "image_sm": "/static/images/shodo-import-img-16x9.png",
