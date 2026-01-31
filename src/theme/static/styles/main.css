@@ -14,7 +14,7 @@
   --nav-background: hsl(35 75% 90% / 1); /* Slightly darker for contrast */
   --text-color: #333;
   --font-family-display: "Della Respira", serif;
-  --font-family-body: "Open Sans", verdana, sans-serif;
+  --font-family-body: "Open Sans", helvetica, "Trebuchet MS", verdana, sans-serif;
   scrollbar-color: var(--primary-color) var(--background-color);
   --navbar-height: var(--nav-height, 64px);
   --svh: 1svh;
@@ -39,6 +39,7 @@ p,
 span,
 a,
 li,
+button,
 .font-body {
   font-family: var(--font-family-body);
   font-style: normal;

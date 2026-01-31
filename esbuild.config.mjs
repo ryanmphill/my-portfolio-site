@@ -6,7 +6,7 @@ const isDev = process.argv.includes("--dev");
 
 const entryPoints = [
   "src/src-scripts/main.js",
-  "src/src-scripts/theme-loader.js",
+  // "src/src-scripts/theme-loader.js",
 ];
 
 async function cleanUp(ctx) {

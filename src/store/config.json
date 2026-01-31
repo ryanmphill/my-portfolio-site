@@ -8,10 +8,15 @@
             "canonical_url": "https://ryanphillips.dev",
             "author": "Ryan Phillips",
             "head_extra": [
-                "<link rel=\"icon\" href=\"/static/images/favicons/portfolio-site-favicon-light.ico\" type=\"image/x-icon\" media=\"(prefers-color-scheme: light)\">",
-                "<link rel=\"icon\" href=\"/static/images/favicons/portfolio-site-favicon-dark.ico\" type=\"image/x-icon\" media=\"(prefers-color-scheme: dark)\">",
-                "<link rel=\"apple-touch-icon\" href=\"/static/images/favicons/portfolio-site-favicon-dark.png\">"
-                ]
+                "<link rel='icon' href='/favicon.ico' type='image/x-icon' sizes='32x32'>",
+                "<link rel='icon' href='/static/images/favicons/favicon-light-32x32.png' media='(prefers-color-scheme: light)' type='image/x-icon' sizes='16x16 32x32'>",
+                "<link rel='icon' href='/static/images/favicons/favicon-dark-32x32.png' media='(prefers-color-scheme: dark)' type='image/x-icon' sizes='16x16 32x32'>",
+                "<link rel='icon' href='/static/images/favicons/favicon-light-96x96.png' media='(prefers-color-scheme: light)' type='image/x-icon' sizes='96x96'>",
+                "<link rel='icon' href='/static/images/favicons/favicon-dark-96x96.png' media='(prefers-color-scheme: dark)' type='image/x-icon' sizes='96x96'>",
+                "<link rel='apple-touch-icon' sizes='180x180' href='/static/images/favicons/apple-touch-icon.png'>",
+                "<link rel='preload' href='/static/assets/fonts/Della_Respira/della-respira-normal-400.woff2' as='font' type='font/woff2' crossorigin>",
+                "<link rel='preload' href='/static/assets/fonts/open-sans/open-sans-v44-greek_latin_latin-ext_math_symbols-regular.woff2' as='font' type='font/woff2' crossorigin>"
+            ]
         },
         "url_origin": "https://ryanphillips.dev",
         "timezone": "America/Chicago"
