@@ -65,15 +65,11 @@
 }
 
 .blog-page .content a {
-  color: var(--primary-color);
   color: color-mix(in srgb, var(--primary-color), black 12%);
   text-decoration: none;
 }
 
 .dark-theme .blog-page .content a {
-  /* color: color-mix(in srgb, var(--primary-color), white 20%); */
-  color: color-mix(in srgb, var(--primary-color), rgb(211, 235, 254) 20%);
-  color: rgb(181, 222, 255);
   color: color-mix(in srgb, rgb(181, 222, 255), white 24%);
 }
 
@@ -82,13 +78,10 @@
 }
 
 .blog-page .content a:is(a:visited) {
-  /* filter: brightness(0.25); */
   color: color-mix(in srgb, var(--primary-color), black 20%);
 }
 
 .dark-theme .blog-page .content a:is(a:visited) {
-  /* filter: brightness(0.25); */
-  color: var(--primary-color);
   color: rgb(181, 222, 255);
 }
 
