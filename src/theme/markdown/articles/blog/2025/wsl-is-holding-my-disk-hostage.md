@@ -60,7 +60,7 @@ This is the file that acts as a hard drive for the Linux distribution, storing a
 For me, it was located at
 
 ```
-C:\Users\<username>\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu_<version>\LocalState/ext4.vhdx
+C:\Users\<username>\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu_<version>\LocalState\ext4.vhdx
 ```
 
 ### 3. Optimize the VHD
