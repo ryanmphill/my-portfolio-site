@@ -1,6 +1,4 @@
-* {
-  box-sizing: border-box;
-}
+/* box-sizing set in main.css */
 
 /* :root:has(.parallax) {
   height: 100vh;
@@ -92,10 +90,7 @@
 }
 
 .homepage-header__heading {
-  margin-right: auto;
-  margin-left: 3rem;
-  margin-bottom: auto;
-  margin-top: 4rem;
+  margin: 4rem auto auto 3rem;
   position: relative;
   text-align: left;
 }
@@ -119,6 +114,7 @@
   margin-top: 0.75rem;
   text-align: inherit;
   font-style: italic;
+  max-width: 18rem;
 }
 
 .parallax-layer {
@@ -208,20 +204,7 @@
   transform: translateZ(-2.5px);
 }
 
-/* .parallax-layer.homepage-header__layer0 {
-    width: 25rem;
-    height: 25rem;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    box-shadow: 0 0 400px var(--primary-color);
-    bottom: 2rem;
-    left: 103%;
-  } */
-
-/* Make the div an orange circle */
 .parallax-layer.homepage-header__layer0 {
-  width: 25rem;
-  height: 25rem;
   width: 100%;
   height: auto;
   aspect-ratio: 1 / 1;
@@ -276,16 +259,7 @@
   margin-top: calc(var(--vh, 1svh) * 100);
 }
 
-.homepage__section {
-  max-width: 80rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 1rem 2rem 1rem;
-}
-
-.homepage__section p:first-child {
-  margin-top: 0;
-}
+/* .homepage__section consolidated with .page-section in 0_common.css */
 
 .technology-badges {
   display: flex;
@@ -379,9 +353,6 @@
   aspect-ratio: 16 / 9;
   position: relative;
   overflow: hidden;
-  border-radius: 0.5rem 0.5rem 0 0;
-  border-radius: var(--project-image-border-radius)
-    var(--project-image-border-radius) 0 0;
   border-radius: var(--project-image-border-radius);
 }
 
@@ -389,9 +360,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 0.5rem 0.5rem 0 0;
-  border-radius: var(--project-image-border-radius)
-    var(--project-image-border-radius) 0 0;
   position: absolute;
   top: 0;
   left: 0;
@@ -462,7 +430,6 @@
   content: "";
   display: block;
   width: 100%;
-  height: 0.125rem;
   height: 0.0625rem;
   border-radius: 0.25rem;
   background-color: var(--secondary-color);
@@ -676,23 +643,22 @@
   }
 
   .homepage-header__heading {
-    margin-right: auto;
-    margin-left: 3rem;
-    margin-bottom: 10%;
-    margin-top: unset;
+    margin: 0 auto 10% 3rem;
     position: relative;
     text-align: left;
   }
 
   .homepage-header__title {
     font-size: 3.35rem;
-    font-weight: 700;
-    color: var(--primary-color);
+    /* font-weight: 700; */
+    /* color: var(--primary-color); */
+    /* margin-top: 4.7rem;  adjust as more lines added to subtitle */
   }
 
   .homepage-header__subtitle {
     font-size: 1.5rem;
     font-weight: 600;
+    max-width: 22rem;
   }
 
   .content {
@@ -808,18 +774,12 @@
   }
 
   .homepage__project-image-container {
-    border-radius: 0.5rem 0 0 0.5rem;
-    border-radius: var(--project-image-border-radius) 0 0
-      var(--project-image-border-radius);
     border-radius: var(--project-image-border-radius);
     aspect-ratio: 3 / 2;
     align-self: stretch;
   }
 
   .homepage__project-image {
-    border-radius: 0.5rem 0 0 0.5rem;
-    border-radius: var(--project-image-border-radius) 0 0
-      var(--project-image-border-radius);
     border-radius: var(--project-image-border-radius);
   }
 }
@@ -847,6 +807,19 @@
       translateX(-500px);
     height: 3px;
   }
+
+  .homepage-header__heading {
+    margin-left: 8rem;
+  }
+
+  .homepage-header__title {
+    font-size: 4rem;
+  }
+
+  .homepage-header__subtitle {
+    font-size: 1.75rem;
+    max-width: 26rem;
+  }
 }
 
 @media (min-width: 1900px) {
@@ -865,6 +838,8 @@
     margin: auto;
     max-height: 1200px;
     min-height: 850px;
+    left: 50%;
+    transform: translate(-50%, 0);
   }
 
   .homepage__content {
@@ -887,10 +862,7 @@
 
 @media (max-width: 560px) {
   .homepage-header__heading {
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: auto;
-    margin-top: 4rem;
+    margin: 4rem auto auto;
     position: relative;
     /* text-align: center; */
   }
@@ -949,6 +921,7 @@
 
   .homepage-header__subtitle {
     font-size: 1.096rem;
+    max-width: 16rem;
   }
 }
 

@@ -3,14 +3,14 @@
 }
 
 :root {
-  --primary-color-option-2: #9f5566; /* WCAG AAA for large text */
+  /* --primary-color-option-2: #9f5566;  WCAG AAA for large text */
   --primary-color: #fc5736; /* WCAG AA for large text CURRENT CHOICE */
-  --secondary-color-option-2: #270408;
+  /* --secondary-color-option-2: #270408; */
   --secondary-color: #680317; /* WCAG AAA for small text CURRENT CHOICE */
   --background-color: #fdf8f1; /* hsl(34, 78%, 97%) CURRENT CHOICE */
-  --nav-background: hsl(35 75% 95% / 1);
+  /* --nav-background: hsl(35 75% 95% / 1); */
   --nav-background-hex: #fcf4e9;
-  --nav-background: #F4E0C5; /* Slightly darker for contrast */
+  /* --nav-background: #F4E0C5;  Slightly darker for contrast */
   --nav-background: hsl(35 75% 90% / 1); /* Slightly darker for contrast */
   --text-color: #333;
   --font-family-display: "Della Respira", serif;
@@ -33,6 +33,9 @@ body {
   background-color: var(--background-color);
   margin: 0;
   font-family: var(--font-family-body);
+  display: flex;
+  flex-direction: column;
+  min-height: 100lvh;
 }
 
 p,
@@ -45,7 +48,6 @@ button,
   font-style: normal;
   font-optical-sizing: auto;
   font-weight: 400;
-  font-style: normal;
   font-variation-settings: "wdth" 100;
 }
 
@@ -76,7 +78,6 @@ h6,
   font-family: var(--font-family-display);
   color: var(--primary-color);
   font-weight: 400;
-  font-size: 2.75rem;
   font-size: 2.5rem;
   line-height: 1.36;
   margin-bottom: 2.2rem;
@@ -118,7 +119,7 @@ h6,
   font-family: var(--font-family-display);
   color: var(--primary-color);
   font-weight: 400;
-  font-size: 1.75rem;
+  font-size: 1.85rem;
   line-height: 1.4;
   margin-bottom: 1.5rem;
   padding: 0.25rem;
@@ -132,6 +133,22 @@ h6,
   font-weight: 700;
   line-height: 1.4;
   padding: 0.25rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+  padding: 0.25rem;
+}
+
+h5 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.4;
+  padding: 0.25rem;
+  font-family: var(--font-family-body);
+  font-style: italic;
 }
 
 .container {

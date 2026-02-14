@@ -34,11 +34,12 @@
   color: var(--secondary-color);
   text-decoration: none;
   transition: color 0.2s ease;
+  font-family: var(--font-family-display);
 }
 
-.blog-archive__post-link:hover {
+/* .page-link.blog-archive__post-link:hover {
   text-decoration: underline;
-}
+} */
 
 .blog-archive__post-excerpt {
   margin: 0.5rem 0;

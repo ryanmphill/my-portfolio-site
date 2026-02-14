@@ -1,8 +1,5 @@
 .navbar {
-  background-color: var(--background-color);
-  background-color: hsl(35 75% 95% / 1);
   background-color: var(--nav-background);
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.15);
   font-size: 20px;
   display: flex;
@@ -137,7 +134,6 @@
 }
 
 .dark-theme .checkbox-label {
-  background-color: var(--background-color);
   background-color: hsl(243, 30%, 6%);
 }
 
@@ -154,7 +150,6 @@
 }
 
 .dark-theme .checkbox-label .icon-sun {
-  color: var(--background-color);
   color: hsl(243, 30%, 6%);
 }
 
@@ -197,7 +192,6 @@
     background-color: var(--nav-background);
     max-height: unset;
     height: 0;
-    box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.15);
     box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.05);
     transition: opacity 0.25s ease-in-out, height 0.25s ease-in-out;
     overflow: clip;
