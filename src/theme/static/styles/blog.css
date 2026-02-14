@@ -108,6 +108,7 @@
 
 .blog-page .page-title {
   font-size: 2.5rem;
+  text-wrap-style: balance;
 }
 
 .blog-page .content {
@@ -117,6 +118,46 @@
 .blog-page :where(p, li, h1, h2, h3, h4, h5, h6) {
   overflow-wrap: break-word;
   text-wrap: pretty;
+}
+
+.blog-page table {
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1rem 0;
+  width: 100%;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.blog-page th,
+.blog-page td {
+  padding: 0.25rem 0.5rem;
+}
+
+.blog-page th:first-child {
+  border-top-left-radius: 4px;
+}
+
+.blog-page th:last-child {
+  border-top-right-radius: 4px;
+}
+
+.blog-page tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 4px;
+}
+
+.blog-page tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 4px;
+}
+
+.blog-page table caption {
+  caption-side: top;
+  text-align: center;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--secondary-color);
 }
 
 @media (min-width: 768px) {

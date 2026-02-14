@@ -33,6 +33,9 @@ body {
   background-color: var(--background-color);
   margin: 0;
   font-family: var(--font-family-body);
+  display: flex;
+  flex-direction: column;
+  min-height: 100lvh;
 }
 
 p,
@@ -116,7 +119,7 @@ h6,
   font-family: var(--font-family-display);
   color: var(--primary-color);
   font-weight: 400;
-  font-size: 1.75rem;
+  font-size: 1.85rem;
   line-height: 1.4;
   margin-bottom: 1.5rem;
   padding: 0.25rem;
@@ -130,6 +133,22 @@ h6,
   font-weight: 700;
   line-height: 1.4;
   padding: 0.25rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+  padding: 0.25rem;
+}
+
+h5 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.4;
+  padding: 0.25rem;
+  font-family: var(--font-family-body);
+  font-style: italic;
 }
 
 .container {
